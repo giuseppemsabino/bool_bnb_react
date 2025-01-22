@@ -1,7 +1,8 @@
-export default function Header(){
-    return (
-        <header>
-        <h1>Header</h1>
-        </header>
-    )
+import Navbar from "./Navbar";
+export default function Header() {
+  return (
+    <header>
+      <Navbar/>
+    </header>
+  );
 }
