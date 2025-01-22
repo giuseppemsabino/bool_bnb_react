@@ -5,8 +5,8 @@ export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
 
-   console.log(propertyId);
-   console.log(apiUrl);
+  console.log(propertyId);
+  console.log(apiUrl);
 
   const [property, setProperty] = useState(null);
 
@@ -15,21 +15,23 @@ export default function ShowPropertyPage() {
   }, []);
 
   const fetchPost = (id) => {
-    const url = `${apiUrl}/properties/${id}`;
+    const url = `${apiUrl}/api/properties/${id}`;
     console.log(url);
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+
         setProperty(data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    return (
-      <div className="container">
-        <h1>{property}</h1>
-      </div>
-    );
   };
+  return (
+    <div className="container">
+      {property && <p>title: {property.title}</p>}
+    </div>
+  );
 }
