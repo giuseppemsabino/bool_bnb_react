@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
     return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-md bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Navbar
