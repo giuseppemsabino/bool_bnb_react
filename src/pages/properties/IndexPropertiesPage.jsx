@@ -26,15 +26,27 @@ export default function IndexPropertiesPage() {
                     </h5>
                     <div>
                       <p className="card-text tag-card-font mb-1 mt-3">Type</p>
-                      <p className="tag-card-font text-dark fw-semibold ">{property.type}</p>
-                      <span class="badge text-bg-success mx-1"><i class="fa-solid fa-bed"></i> {property.n_beds} </span>
-                      <span class="badge text-bg-success mx-1"><i class="fa-solid fa-sink"></i> {property.n_bathrooms} </span>
-                      <span class="badge text-bg-success mx-1"><i class="fa-solid fa-house"></i> {property.n_rooms}</span>
+                      <p className="tag-card-font text-dark fw-semibold ">
+                        {property.type}
+                      </p>
+                    </div>
+                    <div>
+                      <span class="badge text-bg-success mx-1">
+                        <i class="fa-solid fa-bed"></i> {property.n_beds}{" "}
+                      </span>
+                      <span class="badge text-bg-success mx-1">
+                        <i class="fa-solid fa-sink"></i> {property.n_bathrooms}{" "}
+                      </span>
+                      <span class="badge text-bg-success mx-1">
+                        <i class="fa-solid fa-house"></i> {property.n_rooms}
+                      </span>
                     </div>
                   </div>
                   <div className="col-4 text-end">
-                    <p className="card-title tag-card-font"><i class="fa-solid fa-ruler-combined"></i>{property.square_meters}</p>
-
+                    <p className="card-title tag-card-font">
+                      <i class="fa-solid fa-ruler-combined"></i>
+                      {property.square_meters}
+                    </p>
                   </div>
                 </div>
               </div>
