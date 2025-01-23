@@ -3,6 +3,7 @@ import { usePropertiesContext } from "../../contexts/PropertiesContext";
 
 export default function IndexPropertiesPage() {
   const properties = usePropertiesContext();
+  
   return (
     <div className="row g-3 mt-3">
       {properties.map((property) => (
