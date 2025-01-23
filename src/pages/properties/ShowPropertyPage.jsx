@@ -17,7 +17,7 @@ export default function ShowPropertyPage() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setProperty(data);
+        setProperty(data.property);
       })
       .catch((error) => {
         console.error("Error:", error);

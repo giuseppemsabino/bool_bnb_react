@@ -6,11 +6,7 @@ export default function IndexPropertiesPage() {
   return (
     <div className="row g-3 mt-3">
       {properties.map((property) => (
-        // <ul key={property.id}>
-        //   <li>
-        //     <Link to={`/properties/${property.id}`}>{property.title}</Link>
-        //   </li>
-        // </ul>
+       
         <div className="col-sm-6 col-lg-4" key={property.id}>
           <Link
             className="text-decoration-none"
@@ -31,20 +27,20 @@ export default function IndexPropertiesPage() {
                       </p>
                     </div>
                     <div>
-                      <span class="badge text-bg-success mx-1">
-                        <i class="fa-solid fa-bed"></i> {property.n_beds}{" "}
+                      <span className="badge text-bg-success mx-1">
+                        <i className="fa-solid fa-bed"></i> {property.n_beds}
                       </span>
-                      <span class="badge text-bg-success mx-1">
-                        <i class="fa-solid fa-sink"></i> {property.n_bathrooms}{" "}
+                      <span className="badge text-bg-success mx-1">
+                        <i className="fa-solid fa-sink"></i> {property.n_bathrooms}
                       </span>
-                      <span class="badge text-bg-success mx-1">
-                        <i class="fa-solid fa-house"></i> {property.n_rooms}
+                      <span className="badge text-bg-success mx-1">
+                        <i className="fa-solid fa-house"></i> {property.n_rooms}
                       </span>
                     </div>
                   </div>
                   <div className="col-4 text-end">
                     <p className="card-title tag-card-font">
-                      <i class="fa-solid fa-ruler-combined"></i>
+                      <i className="fa-solid fa-ruler-combined"></i>
                       {property.square_meters}
                     </p>
                   </div>
