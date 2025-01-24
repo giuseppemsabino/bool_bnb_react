@@ -1,10 +1,10 @@
-
-
-export default function Card({property}) {
-  
-    return (
+export default function Card({ property }) {
+  return (
     <div className="card h-100">
-      <img src={property.image} className="card-img-top" alt="..." />
+      <div>
+        <img src={property.image} className="card-img-top" alt="..." />
+        <span><i class="fa-solid fa-heart position-absolute  top-0 end-0 p-2 text-danger"></i></span>
+      </div>
       <div className="card-body">
         <div className="row ">
           <div className="col-8">
