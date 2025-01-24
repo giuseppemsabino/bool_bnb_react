@@ -14,3 +14,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     scale: 1.05;
   }
+
+.btn-purple{
+  background-color: #8338ec;
+  color : white;
+  
+}
+.btn-purple:hover{
+  background-color: #6917b0;
+  color: white;
+  
+}

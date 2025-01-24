@@ -30,6 +30,11 @@ export default function ShowPropertyPage() {
       .then((data) => {
         setProperty(data.property);
         setReviews(data.reviews);
+
+        console.log(data.property.image);
+        
+      
+        
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -60,6 +65,8 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         fetchProperty(propertyId);
+       
+        
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -72,7 +79,7 @@ export default function ShowPropertyPage() {
         <div>
           <div>
             <h1>{property.title}</h1>
-            <img src={property.image} />
+            <img className="img-fluid" src={property.image} />
             <p>{property.n_beds}</p>
             <p>{property.n_rooms}</p>
             <p>{property.n_bathrooms}</p>
