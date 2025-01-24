@@ -3,18 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
 
-
-
-
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const { fetchProperties } = usePropertiesContext();
 
-  
-  
-  
   const [property, setProperty] = useState(null);
   const [reviews, setReviews] = useState([]);
 
@@ -30,11 +24,6 @@ export default function ShowPropertyPage() {
       .then((data) => {
         setProperty(data.property);
         setReviews(data.reviews);
-
-        console.log(data.property.image);
-        
-      
-        
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -65,8 +54,6 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         fetchProperty(propertyId);
-       
-        
       })
       .catch((error) => {
         console.error("Error:", error);
