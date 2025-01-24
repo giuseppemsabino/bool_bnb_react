@@ -20,7 +20,8 @@ export default function PropertiesContextProvider({ children }) {
     fetch(apiUrl + "/api/properties")
       .then((res) => res.json())
       .then((data) => {
-        setProperties(data.results);
+        setProperties(data.properties);
+        
       });
   };
 
