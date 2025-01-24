@@ -1,31 +1,43 @@
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .tag-card-font {
   font-size: 0.7rem;
   color: grey;
-  
 }
 
 .card {
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 1px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    scale: 1.05;
-  }
-
-.btn-purple{
-  background-color: #8338ec;
-  color : white;
-  
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
 }
-.btn-purple:hover{
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  scale: 1.05;
+}
+
+.btn-purple {
+  background-color: #8338ec;
+  color: white;
+}
+.btn-purple:hover {
   background-color: #6917b0;
   color: white;
-  
+}
+
+/* NAVBAR */
+
+.nav-item.selected {
+  border-bottom: 2px solid #6917b0;
+}
+
+.nav-item {
+  border-bottom: 2px solid transparent;
+}
+
+.navbar {
+  padding: 0 !important;
+  padding-top: 10px !important;
 }
