@@ -53,9 +53,7 @@ export default function IndexPropertiesPage() {
 
       <div className="row g-3 mt-3">
         {properties.map((property) => (
-          <div className="col-sm-6 col-lg-4" key={property.id}>
-            <Card property={property} />
-          </div>
+          <Card property={property} key={property.id} />
         ))}
       </div>
     </>
