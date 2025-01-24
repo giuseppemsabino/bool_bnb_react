@@ -40,4 +40,14 @@ body {
 .navbar {
   padding: 0 !important;
   padding-top: 10px !important;
+#heart {
+  cursor: pointer;
+  z-index: 3;
+}
+
+#heart > span {
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
 }
