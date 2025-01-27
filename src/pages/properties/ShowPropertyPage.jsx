@@ -3,18 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
 
-
-
-
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const { fetchProperties } = usePropertiesContext();
 
-  
-  
-  
   const [property, setProperty] = useState(null);
   const [reviews, setReviews] = useState([]);
 
@@ -31,10 +25,7 @@ export default function ShowPropertyPage() {
         setProperty(data.property);
         setReviews(data.reviews);
 
-        console.log(data.property.image);
-        
-      
-        
+        // console.log(data.property.image);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -65,8 +56,6 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         fetchProperty(propertyId);
-       
-        
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -78,16 +67,42 @@ export default function ShowPropertyPage() {
       {property && (
         <div>
           <div>
-            <h1>{property.title}</h1>
-            <img className="img-fluid" src={property.image} />
-            <p>{property.n_beds}</p>
-            <p>{property.n_rooms}</p>
-            <p>{property.n_bathrooms}</p>
-            <p>{property.type}</p>
-            <p>{property.address}</p>
+            <div className="d-flex justify-content-between mt-3 ">
+              <div>
+                <h2 className="fw-bold">{property.title}</h2>
+              </div>
+              <div>
+                <span className="text-center share-btn">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i> condividi
+                </span>
+              </div>
+            </div>
+            <div className="">
+              <img className="img-fluid" src={property.image} />
+            </div>
+            <div className="badge-section">
+              <span className="badge text-bg-darkpurple m-1">
+                <i className="fa-solid fa-bed"></i> {property.n_beds} Letti
+              </span>
+              <span className="badge text-bg-darkpurple m-1">
+                <i className="fa-solid fa-house"></i> {property.n_rooms} Camere
+              </span>
+              <span className="badge text-bg-darkpurple m-1">
+                <i className="fa-solid fa-sink"></i> {property.n_bathrooms}{" "}
+                Bagni
+              </span>
+            </div>
+
+            <div>
+              <p>Roma, Italia, {property.address}</p>
+            </div>
+            <div>
+              <h5>Allogio di tipo:</h5>
+              <p>{property.type}</p>
+            </div>
             <p>{property.email}</p>
             <Button
-              className="btn btn-danger"
+              className="btn btn-red"
               onClick={() => handleDeleteProperty(property.id)}
             >
               Elimina immobile
@@ -103,7 +118,7 @@ export default function ShowPropertyPage() {
                   <p>{review.stay_days}</p>
                   <p>{review.start_date.slice(0, 10)}</p>
                   <Button
-                    className="btn btn-danger"
+                    className="btn btn-red"
                     onClick={() => handleDeleteReview(review.id)}
                   >
                     Elimina

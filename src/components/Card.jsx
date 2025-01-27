@@ -13,9 +13,9 @@ export default function Card({ property }) {
             </h5>
             <div>
               <p className="card-text tag-card-font mb-1 mt-3">Type</p>
-              <p className="tag-card-font text-dark fw-semibold ">
+              <span className="tag-card-font text-dark fw-semibold ">
                 {property.type}
-              </p>
+              </span>
             </div>
             <div>
               <span className="badge text-bg-success mx-1">

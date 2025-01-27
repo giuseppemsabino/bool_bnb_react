@@ -20,12 +20,31 @@ body{
   }
 
 .btn-purple{
-  background-color: #8338ec;
+  background-color: #7209b7;
   color : white;
   
 }
 .btn-purple:hover{
-  background-color: #6917b0;
+  background-color: #421196;
+  transition: 0.3s;
+
   color: white;
   
+}
+.btn-red{
+  background-color: #f72585;
+  color: white;
+}
+.btn-red:hover{
+  background-color: #b8001c;
+  color: white;
+}
+.text-bg-darkpurple{
+  background-color: #7209b7;
+  color: white;
+}
+.share-btn:hover{
+  color: #9529ff;
+  transition: 0.3s;
+  cursor: pointer;
 }
