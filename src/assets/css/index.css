@@ -8,50 +8,7 @@ body {
 }
 
 .card {
-<<<<<<< HEAD
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 1px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    scale: 1.05;
-  }
-
-.btn-purple{
-  background-color: #7209b7;
-  color : white;
-  
-}
-.btn-purple:hover{
-  background-color: #421196;
-  transition: 0.3s;
-
-  color: white;
-  
-}
-.btn-red{
-  background-color: #f72585;
-  color: white;
-}
-.btn-red:hover{
-  background-color: #b8001c;
-  color: white;
-}
-.text-bg-darkpurple{
-  background-color: #7209b7;
-  color: white;
-}
-.share-btn:hover{
-  color: #9529ff;
-  transition: 0.3s;
-  cursor: pointer;
-}
-=======
-  transition: all 0.3s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 1px;
 }
 
 .btn-purple {
@@ -92,4 +49,3 @@ body {
   bottom: 50%;
   transform: translate(50%, 50%);
 }
->>>>>>> 06c95c01d62ae2890b3f08ee614d16465da3a913
