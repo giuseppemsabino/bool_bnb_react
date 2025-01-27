@@ -1,12 +1,9 @@
-import { Link } from "react-router-dom";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
 import Card from "../../components/Card";
 
 export default function IndexPropertiesPage() {
-  const {properties} = usePropertiesContext();
+  const { properties } = usePropertiesContext();
 
-  console.log(properties);
-  
   return (
     <>
       {/* <form>
@@ -56,15 +53,7 @@ export default function IndexPropertiesPage() {
 
       <div className="row g-3 mt-3">
         {properties.map((property) => (
-          <div className="col-sm-6 col-lg-4" key={property.id}>
-            <Link
-              className="text-decoration-none"
-              to={`/properties/${property.id}`}
-            >
-             <Card property={property}/>
-              
-            </Link>
-          </div>
+          <Card property={property} key={property.id} />
         ))}
       </div>
     </>

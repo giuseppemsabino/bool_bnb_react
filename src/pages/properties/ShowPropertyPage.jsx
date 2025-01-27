@@ -24,8 +24,11 @@ export default function ShowPropertyPage() {
       .then((data) => {
         setProperty(data.property);
         setReviews(data.reviews);
+<<<<<<< HEAD
 
         // console.log(data.property.image);
+=======
+>>>>>>> 06c95c01d62ae2890b3f08ee614d16465da3a913
       })
       .catch((error) => {
         console.error("Error:", error);
