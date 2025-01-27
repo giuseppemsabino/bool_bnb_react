@@ -48,7 +48,7 @@ export default function Navbar() {
                   aria-current="page"
                   to="/"
                 >
-                  Home
+                  Cerca il tuo immobile
                 </NavLink>
               </li>
               <li

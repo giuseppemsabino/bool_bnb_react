@@ -24,7 +24,10 @@ export default function Card({ property }) {
                 <div>
                   <p className="card-text tag-card-font mb-1 mt-3">Type</p>
                   <p className="tag-card-font text-dark fw-semibold ">
-                    {property.type}
+                    {property.type_name}
+                    <i
+                      className={`fa-solid ${property.type_icon} fa-solid`}
+                    ></i>
                   </p>
                 </div>
                 <div>

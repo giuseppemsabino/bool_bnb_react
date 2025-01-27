@@ -10,7 +10,7 @@ export default function PropertiesContextProvider({ children }) {
 
   const [properties, setProperties] = useState([]);
 
-//   const defaultProperties = properties;
+  //   const defaultProperties = properties;
 
   useEffect(() => {
     fetchProperties();
@@ -21,18 +21,17 @@ export default function PropertiesContextProvider({ children }) {
       .then((res) => res.json())
       .then((data) => {
         setProperties(data.properties);
-        
       });
   };
 
-//   const handleFilter = (e) => {
+  //   const handleFilter = (e) => {
 
-//     fetchProperties();
-//    const newProperties = properties.filter(
-//       (property) => property.type === e.target.defaultValue
-//     );
-//     setProperties(newProperties);
-//   };
+  //     fetchProperties();
+  //    const newProperties = properties.filter(
+  //       (property) => property.type === e.target.defaultValue
+  //     );
+  //     setProperties(newProperties);
+  //   };
 
   return (
     <PropertiesContext.Provider value={{ properties, fetchProperties }}>
