@@ -54,3 +54,58 @@ body {
   font-size: 1.5rem !important;
   padding: 1rem;
 }
+.btn-counter {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 5px 10px;
+  background-color: transparent;
+}
+
+.btn-counter:disabled {
+  border: 1px solid #b7b7b7;
+}
+
+.filter-radio {
+  border-radius: 10px !important;
+  border: 2px solid transparent;
+  font-size: 1.1rem;
+}
+
+.btn-check:checked + .filter-radio {
+  border: 2px solid rgba(0, 0, 0, 0.644);
+  background-color: rgba(128, 128, 128, 0.11);
+}
+
+.btn-group {
+  border-radius: 10px !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background: black;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  background: black;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+input[type="range"]::-webkit-slider-thumb:focus {
+  background: black;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.btn-submit-filter {
+  border: 1px solid black !important;
+}
+
+.btn-submit-filter:hover,
+.btn-submit-filter:hover:active {
+  background-color: rgba(128, 128, 128, 0.11);
+}

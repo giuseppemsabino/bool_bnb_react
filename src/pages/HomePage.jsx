@@ -5,9 +5,13 @@ import Card from "../components/Card";
 export default function HomePage() {
   const defaultSearchInput = {
     text: "",
+    rooms: 0,
+    beds: 0,
+    bathrooms: 0,
+    squareMeters: 0,
+    type_name: "",
   };
   const { properties } = usePropertiesContext();
-
   const [searchInput, setSearchInput] = useState(defaultSearchInput);
   const [filteredProperties, setFilteredProperties] = useState([]);
 
@@ -29,12 +33,29 @@ export default function HomePage() {
     );
   }
 
+  function handleChangeFilters(e) {
+    setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+    setFilteredProperties(
+      properties.filter((property) => {
+        return (
+          property.n_rooms >= searchInput.rooms &&
+          property.n_beds >= searchInput.beds &&
+          property.n_bathrooms >= searchInput.bathrooms &&
+          property.square_meters >= searchInput.squareMeters &&
+          property.type_name === searchInput.type_name
+        );
+      })
+    );
+    console.log(filteredProperties);
     setSearchInput(defaultSearchInput);
   }
 
   function getMinFromProperties() {
+    if (!properties || properties.length === 0) return 0;
     let min = properties[0].square_meters;
     properties.forEach((property, index) => {
       if (index && property.square_meters < min) min = property.square_meters;
@@ -42,14 +63,21 @@ export default function HomePage() {
     return min;
   }
 
-  console.log(getMinFromProperties());
+  function getMaxFromProperties() {
+    if (!properties || properties.length === 0) return 0;
+    let max = properties[0].square_meters;
+    properties.forEach((property, index) => {
+      if (index && property.square_meters > max) max = property.square_meters;
+    });
+    return max;
+  }
 
   return (
     <>
       <div>
         <form onSubmit={handleSubmit}>
           <h1 className="my-4">Cerca il tuo immobile</h1>
-          <div className="row g-0">
+          <div className="row g-1">
             <div className="col-10">
               <input
                 className="form-control form-control-lg"
@@ -86,7 +114,7 @@ export default function HomePage() {
       <div
         className="modal fade "
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -103,84 +131,230 @@ export default function HomePage() {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
-              <section>
-                <h5>Tipo di alloggio</h5>
-                <div
-                  className="btn-group"
-                  role="group"
-                  aria-label="Basic radio toggle button group"
+            <form onSubmit={handleSubmit}>
+              <div className="modal-body">
+                {/* Tipologia Alloggio */}
+                <section className="text-center p-3">
+                  <h5>Tipo di alloggio</h5>
+                  <div
+                    className="btn-group border border-dark p-2"
+                    role="group"
+                    aria-label="Basic radio toggle button group"
+                  >
+                    {properties &&
+                      properties.length &&
+                      properties.map((property) => {
+                        return (
+                          <>
+                            <input
+                              key={property.id}
+                              type="radio"
+                              className="btn-check"
+                              name="type_name"
+                              id={property.id}
+                              autoComplete="off"
+                              onChange={handleChangeFilters}
+                              value={property.type_name}
+                            />
+                            <label
+                              className="btn filter-radio"
+                              htmlFor={property.id}
+                            >
+                              <i
+                                className={`fa-solid ${property.type_icon} me-2`}
+                              ></i>
+                              {property.type_name}
+                            </label>
+                          </>
+                        );
+                      })}
+                  </div>
+                </section>
+
+                <hr />
+                {/* Metratura */}
+                <section className="text-center p-3">
+                  <div>
+                    <h5>Metratura</h5>
+
+                    {properties.length > 0 && (
+                      <input
+                        type="range"
+                        className="form-range"
+                        min={getMinFromProperties()}
+                        max={getMaxFromProperties()}
+                        step="1"
+                        id="customRange3"
+                        onChange={handleChangeFilters}
+                        name="squareMeters"
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <span>{searchInput.squareMeters}</span>
+                  </div>
+                </section>
+
+                <hr />
+                {/* Stanze letti bagni */}
+                <section className="text-center p-3">
+                  <h5>Stanze, letti e bagni</h5>
+
+                  <div className="d-flex justify-content-between mt-4">
+                    <span>Numero stanze</span>
+                    <div>
+                      {!searchInput.rooms ? (
+                        <button
+                          type="button"
+                          className="btn-counter"
+                          onClick={() =>
+                            setSearchInput({
+                              ...searchInput,
+                              rooms: searchInput.rooms - 1,
+                            })
+                          }
+                          disabled
+                        >
+                          <i className="fa-solid fa-minus"></i>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn-counter"
+                          onClick={() =>
+                            setSearchInput({
+                              ...searchInput,
+                              rooms: searchInput.rooms - 1,
+                            })
+                          }
+                        >
+                          <i className="fa-solid fa-minus"></i>
+                        </button>
+                      )}
+
+                      <span className="mx-2">{searchInput.rooms}</span>
+                      <button
+                        type="button"
+                        className="btn-counter"
+                        onClick={() =>
+                          setSearchInput({
+                            ...searchInput,
+                            rooms: searchInput.rooms + 1,
+                          })
+                        }
+                      >
+                        <i className="fa-solid fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="d-flex justify-content-between mt-3">
+                    <span>Numero letti</span>
+                    <div>
+                      {!searchInput.beds ? (
+                        <button
+                          type="button"
+                          className="btn-counter"
+                          onClick={() =>
+                            setSearchInput({
+                              ...searchInput,
+                              beds: searchInput.beds - 1,
+                            })
+                          }
+                          disabled
+                        >
+                          <i className="fa-solid fa-minus"></i>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn-counter"
+                          onClick={() =>
+                            setSearchInput({
+                              ...searchInput,
+                              beds: searchInput.beds - 1,
+                            })
+                          }
+                        >
+                          <i className="fa-solid fa-minus"></i>
+                        </button>
+                      )}
+
+                      <span className="mx-2">{searchInput.beds}</span>
+                      <button
+                        type="button"
+                        className="btn-counter"
+                        onClick={() =>
+                          setSearchInput({
+                            ...searchInput,
+                            beds: searchInput.beds + 1,
+                          })
+                        }
+                      >
+                        <i className="fa-solid fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="d-flex justify-content-between mt-3">
+                    <span>Numero bagni</span>
+                    <div>
+                      {!searchInput.bathrooms ? (
+                        <button
+                          type="button"
+                          className="btn-counter"
+                          onClick={() =>
+                            setSearchInput({
+                              ...searchInput,
+                              bathrooms: searchInput.bathrooms - 1,
+                            })
+                          }
+                          disabled
+                        >
+                          <i className="fa-solid fa-minus"></i>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn-counter"
+                          onClick={() =>
+                            setSearchInput({
+                              ...searchInput,
+                              bathrooms: searchInput.bathrooms - 1,
+                            })
+                          }
+                        >
+                          <i className="fa-solid fa-minus"></i>
+                        </button>
+                      )}
+
+                      <span className="mx-2">{searchInput.bathrooms}</span>
+                      <button
+                        type="button"
+                        className="btn-counter"
+                        onClick={() =>
+                          setSearchInput({
+                            ...searchInput,
+                            bathrooms: searchInput.bathrooms + 1,
+                          })
+                        }
+                      >
+                        <i className="fa-solid fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="submit"
+                  className="btn btn-submit-filter"
+                  data-bs-dismiss="modal"
                 >
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="btnradio"
-                    id="btnradio1"
-                    autocomplete="off"
-                  />
-                  <label className="btn btn-outline-primary" for="btnradio1">
-                    Radio 1
-                  </label>
-
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="btnradio"
-                    id="btnradio2"
-                    autocomplete="off"
-                  />
-                  <label className="btn btn-outline-primary" for="btnradio2">
-                    Radio 2
-                  </label>
-
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="btnradio"
-                    id="btnradio3"
-                    autocomplete="off"
-                  />
-                  <label className="btn btn-outline-primary" for="btnradio3">
-                    Radio 3
-                  </label>
-                </div>
-              </section>
-
-              <hr />
-
-              <section>
-                <h5>Metratura</h5>
-                <label for="customRange3" className="form-label">
-                  Example range
-                </label>
-                <input
-                  type="range"
-                  className="form-range"
-                  min={properties.length && (() => getMinFromProperties())}
-                  max="5"
-                  step="0.1"
-                  id="customRange3"
-                />
-              </section>
-
-              <hr />
-
-              <section>
-                <h5>Stanze, letti e bagni</h5>
-              </section>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
+                  Applica filtri
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
