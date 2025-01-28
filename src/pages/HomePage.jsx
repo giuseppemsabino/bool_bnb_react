@@ -22,12 +22,8 @@ export default function HomePage() {
     setFilteredProperties(
       properties.filter((property) => {
         return (
-          property.title
-            .toLowerCase()
-            .includes(searchInput.text.toLowerCase()) ||
-          property.address
-            .toLowerCase()
-            .includes(searchInput.text.toLowerCase())
+          property.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          property.address.toLowerCase().includes(e.target.value.toLowerCase())
         );
       })
     );
