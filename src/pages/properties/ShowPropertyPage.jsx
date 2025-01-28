@@ -112,6 +112,7 @@ export default function ShowPropertyPage() {
             {reviews.length > 0 ? (
               reviews.map((review) => (
                 <div key={review.id}>
+                  <img src={review.user_img} />
                   <span>{review.name}</span>
                   <span>{review.surname}</span>
                   <p>{review.content}</p>
