@@ -90,7 +90,7 @@ export default function HomePage() {
     <>
       <div>
         <form onSubmit={handleSearchBar}>
-          <h1 className="my-4">Cerca il tuo immobile</h1>
+          <h1 className="my-4">Cerca l'immobile che fa per te</h1>
           <div className="row g-1">
             <div className="col-10">
               <input

@@ -5,7 +5,7 @@ export default function Card({ property }) {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="col-md-6 col-lg-4 position-relative">
+    <div className="col-md-6 position-relative">
       <div id="heart" onClick={() => setCount(count + 1)}>
         <i className="fa-solid fa-heart fs-4 text-danger"></i>
         <span className="text-light fw-semibold">{count}</span>
