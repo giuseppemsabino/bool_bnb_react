@@ -3,20 +3,20 @@ import { usePropertiesContext } from "../contexts/PropertiesContext";
 import Card from "../components/Card";
 
 export default function HomePage() {
+  const { properties } = usePropertiesContext();
   const defaultSearchInput = {
     text: "",
     rooms: 0,
     beds: 0,
     bathrooms: 0,
-    squareMeters: 0,
+    squareMeters: getMinFromProperties(),
     type_name: "",
   };
-  const { properties } = usePropertiesContext();
+
   const [searchInput, setSearchInput] = useState(defaultSearchInput);
   const [filteredProperties, setFilteredProperties] = useState([]);
 
   function handleChangeInput(e) {
-    console.log(e.target.value);
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
 
     setFilteredProperties(
@@ -37,20 +37,38 @@ export default function HomePage() {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
   }
 
+  function handleSearchBar(e) {
+    e.preventDefault();
+    setSearchInput({ ...searchInput, text: "" });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     setFilteredProperties(
       properties.filter((property) => {
-        return (
-          property.n_rooms >= searchInput.rooms &&
-          property.n_beds >= searchInput.beds &&
-          property.n_bathrooms >= searchInput.bathrooms &&
-          property.square_meters >= searchInput.squareMeters &&
-          property.type_name === searchInput.type_name
-        );
+        if (searchInput.type_name.length) {
+          return (
+            property.n_rooms >= searchInput.rooms &&
+            property.n_beds >= searchInput.beds &&
+            property.n_bathrooms >= searchInput.bathrooms &&
+            property.square_meters >= searchInput.squareMeters &&
+            property.type_name === searchInput.type_name
+          );
+        } else {
+          return (
+            property.n_rooms >= searchInput.rooms &&
+            property.n_beds >= searchInput.beds &&
+            property.n_bathrooms >= searchInput.bathrooms &&
+            property.square_meters >= searchInput.squareMeters
+          );
+        }
       })
     );
-    console.log(filteredProperties);
+    for (let i = 0; i < 3; i++) {
+      e.target[i].checked = false;
+    }
+    e.target[3].value = getMinFromProperties();
+
     setSearchInput(defaultSearchInput);
   }
 
@@ -75,7 +93,7 @@ export default function HomePage() {
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSearchBar}>
           <h1 className="my-4">Cerca il tuo immobile</h1>
           <div className="row g-1">
             <div className="col-10">
@@ -111,13 +129,7 @@ export default function HomePage() {
       </div>
 
       {/* MODAL */}
-      <div
-        className="modal fade "
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
+      <div className="modal fade " id="exampleModal" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -128,7 +140,6 @@ export default function HomePage() {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"
               ></button>
             </div>
             <form onSubmit={handleSubmit}>
@@ -139,7 +150,6 @@ export default function HomePage() {
                   <div
                     className="btn-group border border-dark p-2"
                     role="group"
-                    aria-label="Basic radio toggle button group"
                   >
                     {properties &&
                       properties.length &&
