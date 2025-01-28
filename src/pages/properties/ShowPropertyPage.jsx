@@ -107,17 +107,19 @@ export default function ShowPropertyPage() {
               Elimina immobile
             </Button>
           </div>
-          {console.log(reviews)}
-          <div>
+          <div className="row">
             {reviews.length > 0 ? (
               reviews.map((review) => (
-                <div key={review.id}>
-                  <img src={review.user_img} />
-                  <span>{review.name}</span>
-                  <span>{review.surname}</span>
-                  <p>{review.content}</p>
-                  <p>{review.stay_days}</p>
-                  <p>{review.start_date.slice(0, 10)}</p>
+                <div key={review.id} className="col-sm-6 col-md-4">
+                  <div className="card">
+                    <div className="card-body">
+                      <img src={review.user_img} className="img-fluid" />
+                      <span className="card-title">{`${review.name} ${review.surname}`}</span>
+                      <p className="card-text">{review.content}</p>
+                      <span>{review.stay_days}</span>
+                      <h5>{review.start_date.slice(0, 10)}</h5>
+                    </div>
+                  </div>
                   <Button
                     className="btn btn-red"
                     onClick={() => handleDeleteReview(review.id)}

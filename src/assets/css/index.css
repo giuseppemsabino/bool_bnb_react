@@ -109,3 +109,8 @@ input[type="range"]::-webkit-slider-thumb:focus {
 .btn-submit-filter:hover:active {
   background-color: rgba(128, 128, 128, 0.11);
 }
+
+.card-body img {
+  width: 50px;
+  border-radius: 10px;
+}
