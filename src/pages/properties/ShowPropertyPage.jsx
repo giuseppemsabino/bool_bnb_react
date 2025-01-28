@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
+import ReviewCard from "../../components/ReviewCard";
 
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
@@ -60,8 +61,6 @@ export default function ShowPropertyPage() {
       });
   };
 
-  console.log(property.n_beds);
-
   return (
     <>
       {property && (
@@ -115,15 +114,7 @@ export default function ShowPropertyPage() {
             {reviews.length > 0 ? (
               reviews.map((review) => (
                 <div key={review.id} className="col-sm-6 col-md-4">
-                  <div className="card">
-                    <div className="card-body">
-                      <img src={review.user_img} className="img-fluid" />
-                      <span className="card-title">{`${review.name} ${review.surname}`}</span>
-                      <p className="card-text">{review.content}</p>
-                      <span>{review.stay_days}</span>
-                      <h5>{review.start_date.slice(0, 10)}</h5>
-                    </div>
-                  </div>
+                  <ReviewCard review={review}></ReviewCard>
                   <Button
                     className="btn btn-red"
                     onClick={() => handleDeleteReview(review.id)}
