@@ -93,7 +93,7 @@ export default function ShowPropertyPage() {
             </div>
 
             <div>
-              <p>Roma, Italia, {property.address}</p>
+              <p>{property.address}</p>
             </div>
             <div>
               <h5>Allogio di tipo:</h5>
