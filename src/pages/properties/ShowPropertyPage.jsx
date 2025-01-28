@@ -106,6 +106,7 @@ export default function ShowPropertyPage() {
               Elimina immobile
             </Button>
           </div>
+          {console.log(reviews)}
           <div>
             {reviews.length > 0 ? (
               reviews.map((review) => (
