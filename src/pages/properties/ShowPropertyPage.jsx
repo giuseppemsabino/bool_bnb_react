@@ -60,6 +60,8 @@ export default function ShowPropertyPage() {
       });
   };
 
+  console.log(property.n_beds);
+
   return (
     <>
       {property && (
@@ -72,22 +74,24 @@ export default function ShowPropertyPage() {
               <div>
                 <span className="text-center share-btn">
                   <i className="fa-solid fa-arrow-up-from-bracket"></i>
-                  condividi
+                  Condividi
                 </span>
               </div>
             </div>
-            <div className="">
+            <div>
               <img className="img-fluid" src={property.image} />
             </div>
             <div className="badge-section">
               <span className="badge text-bg-darkpurple m-1">
-                <i className="fa-solid fa-bed"></i> {property.n_beds} Letti
+                <i className="fa-solid fa-bed"></i> {property.n_beds}
+                Letti
               </span>
               <span className="badge text-bg-darkpurple m-1">
-                <i className="fa-solid fa-house"></i> {property.n_rooms} Camere
+                <i className="fa-solid fa-house"></i> {property.n_rooms}
+                Camere
               </span>
               <span className="badge text-bg-darkpurple m-1">
-                <i className="fa-solid fa-sink"></i> {property.n_bathrooms}{" "}
+                <i className="fa-solid fa-sink"></i> {property.n_bathrooms}
                 Bagni
               </span>
             </div>
@@ -96,8 +100,8 @@ export default function ShowPropertyPage() {
               <p>{property.address}</p>
             </div>
             <div>
-              <h5>Allogio di tipo:</h5>
-              <p>{property.type}</p>
+              <h5>Allogio:</h5>
+              <p>{property.type_name}</p>
             </div>
             <p>{property.email}</p>
             <Button
