@@ -71,7 +71,8 @@ export default function ShowPropertyPage() {
               </div>
               <div>
                 <span className="text-center share-btn">
-                  <i class="fa-solid fa-arrow-up-from-bracket"></i> condividi
+                  <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                  condividi
                 </span>
               </div>
             </div>
