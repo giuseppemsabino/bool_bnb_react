@@ -120,7 +120,7 @@ export default function HomePage() {
 
       <div className="row mt-5">
         {filteredProperties.map((property) => {
-          return <Card property={property} />;
+          return <Card key={property.id} property={property} />;
         })}
       </div>
 
@@ -151,9 +151,8 @@ export default function HomePage() {
                       properties.length &&
                       properties.map((property) => {
                         return (
-                          <>
+                          <div key={property.id}>
                             <input
-                              key={property.id}
                               type="radio"
                               className="btn-check"
                               name="type_name"
@@ -171,7 +170,7 @@ export default function HomePage() {
                               ></i>
                               {property.type_name}
                             </label>
-                          </>
+                          </div>
                         );
                       })}
                   </div>
