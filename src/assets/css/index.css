@@ -40,6 +40,7 @@ body {
   color: grey;
 }
 
+/* card shadow */
 .card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -57,6 +58,9 @@ body {
 .text-bg-badge {
   background-color: #8338ec;
   color: white;
+}
+.login-text:hover{
+  color: #8338ec;
 }
 /* share button  */
 .share-btn:hover {
@@ -175,10 +179,22 @@ input[type="range"]::-webkit-slider-thumb:focus {
   background-color: rgba(128, 128, 128, 0.11);
 }
 
-.card-body img {
+/* img user reviews */
+.review-top-side img {
   width: 50px;
-  border-radius: 10px;
+  border-radius: 50%;
 }
+/* punto tra stelle e soggiorno */
+.fa-circle{
+  font-size: 0.2rem;
+  padding: 0 2px;
+}
+
+/* font size rating e soggiorno */
+.stars-stay{
+  font-size: 0.75rem;
+}
+
 /* stars icons Rating */
 .stars-size{
   font-size: 0.6rem;
@@ -212,6 +228,9 @@ input[type="range"]::-webkit-slider-thumb:focus {
 }
 
 /* host info */
+.host{
+  margin: 20px 0;
+}
 .host img{
   width: 80px;
   border-radius: 50%;

@@ -5,7 +5,6 @@ import { usePropertiesContext } from "../../contexts/PropertiesContext";
 import ReviewCard from "../../components/ReviewCard";
 import Stars from "../../components/Stars";
 
-
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -100,7 +99,7 @@ export default function ShowPropertyPage() {
                       <div>5</div>
                       <p className="stars-size">
                         <span>
-                        <Stars rating={3}/>
+                          <Stars rating={3} />
                         </span>
                       </p>
                     </div>
@@ -122,13 +121,17 @@ export default function ShowPropertyPage() {
                     </span>
                   </div>
                 </div>
+                <div>
+                  <h5>Allogio di tipo: <span className="badge text-bg-badge my-2">{property.type_name}</span></h5> 
+                </div>
               </div>
             </div>
 
             <div className="py-2">
-              <h3>Host della proprietà: Benito </h3>
+              <h3>Host della proprietà: {property.host_name} </h3>
               {/* qua si aggiunge il nome dell proprietario quando si farà la tabella */}
-              <p className="p-0 m-0">Roma, Italia, {property.address}</p>
+              <p className="p-0 m-0">{property.address}</p>
+              <p>{property.description}</p>
               <p className="text-end fw-bolder"> €120 / giorno</p>
             </div>
             <hr className="line" />
@@ -147,26 +150,15 @@ export default function ShowPropertyPage() {
 
             <hr className="line" />
 
-            <div className="d-flex flex-column flex-sm-row justify-content-sm-between">
+            <div className="d-flex flex-column flex-sm-row justify-content-md-between ">
               {" "}
               {/*revi */}
-              <div>
+              <div className="row">
                 {/*all reviews */}
                 {reviews.length > 0 ? (
                   reviews.map((review) => (
-                    <div key={review.id}>
-                      
-                      <span>{review.name}</span>
-                      <span>{review.surname}</span>
-                      <p>{review.content}</p>
-                      <p>{review.stay_days}</p>
-                      <p>{review.start_date.slice(0, 10)}</p>
-                      <Button
-                        className="btn btn-red"
-                        onClick={() => handleDeleteReview(review.id)}
-                      >
-                        Elimina
-                      </Button>
+                    <div key={review.id} className="col-md-12 col-lg-6">
+                      <ReviewCard review={review} />
                     </div>
                   ))
                 ) : (
@@ -175,7 +167,7 @@ export default function ShowPropertyPage() {
               </div>
               <div>
                 {/*form for add reviews */}
-                <div className="form-box">
+                <div className="form-box m-3">
                   <div className="mb-3">
                     <label htmlFor="nome" className="form-label">
                       Nome
@@ -223,10 +215,9 @@ export default function ShowPropertyPage() {
                     ></textarea>
                   </div>
                 </div>
-                <div>
+                <div className="m-3">
                   {/*email and botton */}
-                  <h5>Allogio di tipo:</h5>
-                  <p>{property.type}</p>
+
                   <p>{property.email}</p>
                   <Button
                     className="btn btn-red"
@@ -238,17 +229,21 @@ export default function ShowPropertyPage() {
               </div>
             </div>
 
-            <div className="host d-flex aling-items-center">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/6/67/Mussolini_biografia.jpg"
-                alt=""
-              />
+            <div className="host d-flex aling-items-sm-center flex-column flex-sm-row">
+              <div className="d-flex justify-content-center ">
+                <img
+                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  alt=""
+                />
+              </div>
               <div>
-                <h2 className="fw-bolder">Benito Mussolini</h2>
+                <h2 className="fw-bolder">Adolfo Hernandez AH</h2>
                 <p>
                   <span>
-                   <Stars rating={4}/>
-                  </span> &nbsp; &nbsp; 25 recessioni &nbsp; &nbsp; tasso di risposta: 100% &nbsp; &nbsp; Tempo di risposta: 60min 
+                    <Stars rating={4} />
+                  </span>{" "}
+                  &nbsp; &nbsp; 25 recessioni &nbsp; &nbsp; tasso di risposta:
+                  100% &nbsp; &nbsp; Tempo di risposta: 60min
                 </p>
               </div>
             </div>

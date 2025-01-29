@@ -73,9 +73,9 @@ export default function Navbar() {
                   Inserisci immobili
                 </Link>
               </div>
-              <Button className="btn btn-purple" onClick={() => alert("test")}>
+              <Button className="btn login-text" onClick={() => alert("test")}>
                 <i className="fa-solid fa-circle-user"></i>{" "}
-                <span className="fw-semibold"> Login </span>
+                <span className="fw-semibold "> Login </span>
               </Button>
             </div>
           </div>
