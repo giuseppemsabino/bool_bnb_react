@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { usePropertiesContext } from "../contexts/PropertiesContext";
 import Card from "../components/Card";
+import PropertiesTypeInputGroup from "../components/PropertiesTypeInputGroup";
 
 export default function HomePage() {
   const { properties } = usePropertiesContext();
@@ -111,7 +112,7 @@ export default function HomePage() {
             >
               <h5 className="my-0">
                 <i className="fa-solid fa-sliders me-1"></i>
-                Filtri
+                <span className="d-none d-md-inline">Filtri</span>
               </h5>
             </div>
           </div>
@@ -143,37 +144,10 @@ export default function HomePage() {
                 {/* Tipologia Alloggio */}
                 <section className="text-center p-3">
                   <h5>Tipo di alloggio</h5>
-                  <div
-                    className="btn-group border border-dark p-2"
-                    role="group"
-                  >
-                    {properties &&
-                      properties.length &&
-                      properties.map((property) => {
-                        return (
-                          <div key={property.id}>
-                            <input
-                              type="radio"
-                              className="btn-check"
-                              name="type_name"
-                              id={property.id}
-                              autoComplete="off"
-                              onChange={handleChangeFilters}
-                              value={property.type_name}
-                            />
-                            <label
-                              className="btn filter-radio"
-                              htmlFor={property.id}
-                            >
-                              <i
-                                className={`fa-solid ${property.type_icon} me-2`}
-                              ></i>
-                              {property.type_name}
-                            </label>
-                          </div>
-                        );
-                      })}
-                  </div>
+                  <PropertiesTypeInputGroup
+                    handleFunction={handleChangeFilters}
+                    idValue="filters-"
+                  ></PropertiesTypeInputGroup>
                 </section>
 
                 <hr />
