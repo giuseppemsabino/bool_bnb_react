@@ -73,7 +73,7 @@ export default function ShowPropertyPage() {
               </div>
               <div>
                 <span className="text-center share-btn">
-                  <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                  <i className="fa-solid fa-arrow-up-from-bracket"/>{" "}
                   condividi
                 </span>
               </div>
@@ -122,7 +122,12 @@ export default function ShowPropertyPage() {
                   </div>
                 </div>
                 <div>
-                  <h5>Allogio di tipo: <span className="badge text-bg-badge my-2">{property.type_name}</span></h5> 
+                  <h5>
+                    Allogio di tipo:{" "}
+                    <span className="badge text-bg-badge my-2">
+                      {property.type_name}
+                    </span>
+                  </h5>
                 </div>
               </div>
             </div>
@@ -217,8 +222,11 @@ export default function ShowPropertyPage() {
                 </div>
                 <div className="m-3">
                   {/*email and botton */}
+                  <div>
+                   <strong> Per maggiori informazioni scriva alla seguente mail:</strong>
 
-                  <p>{property.email}</p>
+                  <p className="login-text">{property.email}</p>
+                  </div>
                   <Button
                     className="btn btn-red"
                     onClick={() => handleDeleteProperty(property.id)}

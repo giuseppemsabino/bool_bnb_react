@@ -61,6 +61,7 @@ body {
 }
 .login-text:hover{
   color: #8338ec;
+  cursor: pointer;
 }
 /* share button  */
 .share-btn:hover {
