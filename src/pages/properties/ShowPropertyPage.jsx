@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
+import ReviewCard from "../../components/ReviewCard";
 import Stars from "../../components/Stars";
 
 

@@ -48,7 +48,7 @@ export default function Navbar() {
                   aria-current="page"
                   to="/"
                 >
-                  Home
+                  Cerca il tuo immobile
                 </NavLink>
               </li>
               <li
@@ -66,7 +66,12 @@ export default function Navbar() {
             </ul>
             <div className="d-flex align-items-center">
               <div className="me-4">
-                <span>Inserisci immobile</span>
+                <Link
+                  className="text-decoration-none text-dark"
+                  to="/properties/insert"
+                >
+                  Inserisci immobili
+                </Link>
               </div>
               <Button className="btn btn-purple" onClick={() => alert("test")}>
                 <i className="fa-solid fa-circle-user"></i>{" "}
