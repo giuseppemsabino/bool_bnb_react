@@ -5,7 +5,6 @@ import { usePropertiesContext } from "../../contexts/PropertiesContext";
 import ReviewCard from "../../components/ReviewCard";
 import Stars from "../../components/Stars";
 
-
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -100,7 +99,7 @@ export default function ShowPropertyPage() {
                       <div>5</div>
                       <p className="stars-size">
                         <span>
-                        <Stars rating={3}/>
+                          <Stars rating={3} />
                         </span>
                       </p>
                     </div>
@@ -138,8 +137,7 @@ export default function ShowPropertyPage() {
               {/*map section */}
               <h3>Posizione del immobile</h3>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149284.69820229863!2d8.980461539844416!3d45.953023351296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47843d32820b62f7%3A0x3e40c4eae898e1e0!2sLago%20di%20Como!5e0!3m2!1sit!2sit!4v1738079658449!5m2!1sit!2sit"
-                width="600"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149284.69820229863!2d8.980461539844416!3d45.953023351296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47843d32820b62f7%3A0x3e40c4eae898e1e0!2sLago%20di%20Garda!5e0!3m2!1sit!2sit!4v1738079658449!5m2!1sit!2sit"
                 height="450"
                 loading="lazy"
               ></iframe>
@@ -155,7 +153,6 @@ export default function ShowPropertyPage() {
                 {reviews.length > 0 ? (
                   reviews.map((review) => (
                     <div key={review.id}>
-                      
                       <span>{review.name}</span>
                       <span>{review.surname}</span>
                       <p>{review.content}</p>
@@ -247,8 +244,10 @@ export default function ShowPropertyPage() {
                 <h2 className="fw-bolder">Benito Mussolini</h2>
                 <p>
                   <span>
-                   <Stars rating={4}/>
-                  </span> &nbsp; &nbsp; 25 recessioni &nbsp; &nbsp; tasso di risposta: 100% &nbsp; &nbsp; Tempo di risposta: 60min 
+                    <Stars rating={4} />
+                  </span>{" "}
+                  &nbsp; &nbsp; 25 recessioni &nbsp; &nbsp; tasso di risposta:
+                  100% &nbsp; &nbsp; Tempo di risposta: 60min
                 </p>
               </div>
             </div>
