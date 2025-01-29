@@ -9,11 +9,11 @@ export default function PropertiesContextProvider({ children }) {
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const [properties, setProperties] = useState([]);
-
-  //   const defaultProperties = properties;
+  const [types, setTypes] = useState([]);
 
   useEffect(() => {
     fetchProperties();
+    fetchTypes();
   }, []);
 
   const fetchProperties = () => {
@@ -24,17 +24,18 @@ export default function PropertiesContextProvider({ children }) {
       });
   };
 
-  //   const handleFilter = (e) => {
-
-  //     fetchProperties();
-  //    const newProperties = properties.filter(
-  //       (property) => property.type === e.target.defaultValue
-  //     );
-  //     setProperties(newProperties);
-  //   };
+  const fetchTypes = () => {
+    fetch(apiUrl + "/api/properties/types")
+      .then((res) => res.json())
+      .then((data) => {
+        setTypes(data.types);
+      });
+  };
 
   return (
-    <PropertiesContext.Provider value={{ properties, fetchProperties }}>
+    <PropertiesContext.Provider
+      value={{ properties, types, fetchProperties, setProperties }}
+    >
       {children}
     </PropertiesContext.Provider>
   );

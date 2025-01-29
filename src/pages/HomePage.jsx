@@ -2,9 +2,10 @@ import { useState } from "react";
 import { usePropertiesContext } from "../contexts/PropertiesContext";
 import Card from "../components/Card";
 import PropertiesTypeInputGroup from "../components/PropertiesTypeInputGroup";
+import Counter from "../components/Counter";
 
 export default function HomePage() {
-  const { properties } = usePropertiesContext();
+  const { properties, types } = usePropertiesContext();
   const defaultSearchInput = {
     text: "",
     rooms: 0,
@@ -61,10 +62,11 @@ export default function HomePage() {
         }
       })
     );
-    for (let i = 0; i < 3; i++) {
+
+    for (let i = 0; i < types.length; i++) {
       e.target[i].checked = false;
     }
-    e.target[3].value = getMinFromProperties();
+    e.target[types.length].value = getMinFromProperties();
 
     setSearchInput(defaultSearchInput);
   }
@@ -179,149 +181,29 @@ export default function HomePage() {
                 <section className="text-center p-3">
                   <h5>Stanze, letti e bagni</h5>
 
-                  <div className="d-flex justify-content-between mt-4">
-                    <span>Numero stanze</span>
-                    <div>
-                      {!searchInput.rooms ? (
-                        <button
-                          type="button"
-                          className="btn-counter"
-                          onClick={() =>
-                            setSearchInput({
-                              ...searchInput,
-                              rooms: searchInput.rooms - 1,
-                            })
-                          }
-                          disabled
-                        >
-                          <i className="fa-solid fa-minus"></i>
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn-counter"
-                          onClick={() =>
-                            setSearchInput({
-                              ...searchInput,
-                              rooms: searchInput.rooms - 1,
-                            })
-                          }
-                        >
-                          <i className="fa-solid fa-minus"></i>
-                        </button>
-                      )}
+                  <Counter
+                    counterName="Numero stanze"
+                    setFormData={setSearchInput}
+                    formDataCounter={searchInput.rooms}
+                    formData={searchInput}
+                    counter="rooms"
+                  />
 
-                      <span className="mx-2">{searchInput.rooms}</span>
-                      <button
-                        type="button"
-                        className="btn-counter"
-                        onClick={() =>
-                          setSearchInput({
-                            ...searchInput,
-                            rooms: searchInput.rooms + 1,
-                          })
-                        }
-                      >
-                        <i className="fa-solid fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
+                  <Counter
+                    counterName="Numero letti"
+                    setFormData={setSearchInput}
+                    formDataCounter={searchInput.beds}
+                    formData={searchInput}
+                    counter="beds"
+                  />
 
-                  <div className="d-flex justify-content-between mt-3">
-                    <span>Numero letti</span>
-                    <div>
-                      {!searchInput.beds ? (
-                        <button
-                          type="button"
-                          className="btn-counter"
-                          onClick={() =>
-                            setSearchInput({
-                              ...searchInput,
-                              beds: searchInput.beds - 1,
-                            })
-                          }
-                          disabled
-                        >
-                          <i className="fa-solid fa-minus"></i>
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn-counter"
-                          onClick={() =>
-                            setSearchInput({
-                              ...searchInput,
-                              beds: searchInput.beds - 1,
-                            })
-                          }
-                        >
-                          <i className="fa-solid fa-minus"></i>
-                        </button>
-                      )}
-
-                      <span className="mx-2">{searchInput.beds}</span>
-                      <button
-                        type="button"
-                        className="btn-counter"
-                        onClick={() =>
-                          setSearchInput({
-                            ...searchInput,
-                            beds: searchInput.beds + 1,
-                          })
-                        }
-                      >
-                        <i className="fa-solid fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="d-flex justify-content-between mt-3">
-                    <span>Numero bagni</span>
-                    <div>
-                      {!searchInput.bathrooms ? (
-                        <button
-                          type="button"
-                          className="btn-counter"
-                          onClick={() =>
-                            setSearchInput({
-                              ...searchInput,
-                              bathrooms: searchInput.bathrooms - 1,
-                            })
-                          }
-                          disabled
-                        >
-                          <i className="fa-solid fa-minus"></i>
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn-counter"
-                          onClick={() =>
-                            setSearchInput({
-                              ...searchInput,
-                              bathrooms: searchInput.bathrooms - 1,
-                            })
-                          }
-                        >
-                          <i className="fa-solid fa-minus"></i>
-                        </button>
-                      )}
-
-                      <span className="mx-2">{searchInput.bathrooms}</span>
-                      <button
-                        type="button"
-                        className="btn-counter"
-                        onClick={() =>
-                          setSearchInput({
-                            ...searchInput,
-                            bathrooms: searchInput.bathrooms + 1,
-                          })
-                        }
-                      >
-                        <i className="fa-solid fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
+                  <Counter
+                    counterName="Numero bagni"
+                    setFormData={setSearchInput}
+                    formDataCounter={searchInput.bathrooms}
+                    formData={searchInput}
+                    counter="bathrooms"
+                  />
                 </section>
               </div>
               <div className="modal-footer">
