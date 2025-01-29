@@ -17,7 +17,6 @@ export default function HomePage() {
 
   const [searchInput, setSearchInput] = useState(defaultSearchInput);
   const [filteredProperties, setFilteredProperties] = useState([]);
-  const [activeFilters, setActiveFilters] = useState([]);
 
   function handleChangeInput(e) {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
@@ -68,7 +67,7 @@ export default function HomePage() {
       e.target[i].checked = false;
     }
     e.target[types.length].value = getMinFromProperties();
-    setActiveFilters(searchInput);
+
     setSearchInput(defaultSearchInput);
   }
 
@@ -123,29 +122,8 @@ export default function HomePage() {
       </div>
 
       {/* FILTRI APPLICATI */}
-      <div className="d-flex gap-3 fs-3">
-        {activeFilters.type_name && (
-          <div className="badge text-bg-badge m-1">
-            {activeFilters.type_name}
-          </div>
-        )}
-        {activeFilters.rooms != 0 && (
-          <div className="badge text-bg-badge m-1">{activeFilters.rooms}</div>
-        )}
-        {activeFilters.beds != 0 && (
-          <div className="badge text-bg-badge m-1">{activeFilters.beds}</div>
-        )}
-        {activeFilters.bathrooms != 0 && (
-          <div className="badge text-bg-badge m-1">
-            {activeFilters.bathrooms}
-          </div>
-        )}
-        {activeFilters.squareMeters != 0 && (
-          <div className="badge text-bg-badge m-1">
-            {activeFilters.squareMeters}
-          </div>
-        )}
-      </div>
+      {/* <div className="d-flex gap-3 fs-3">
+      </div> */}
 
       <div className="row mt-5">
         {filteredProperties.map((property) => {

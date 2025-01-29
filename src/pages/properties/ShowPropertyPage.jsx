@@ -73,8 +73,7 @@ export default function ShowPropertyPage() {
               </div>
               <div>
                 <span className="text-center share-btn">
-                  <i className="fa-solid fa-arrow-up-from-bracket"/>{" "}
-                  condividi
+                  <i className="fa-solid fa-arrow-up-from-bracket" /> condividi
                 </span>
               </div>
             </div>
@@ -123,7 +122,7 @@ export default function ShowPropertyPage() {
                 </div>
                 <div>
                   <h5>
-                    Allogio di tipo:{" "}
+                    Alloggio di tipo:{" "}
                     <span className="badge text-bg-badge my-2">
                       {property.type_name}
                     </span>
@@ -137,7 +136,7 @@ export default function ShowPropertyPage() {
               {/* qua si aggiunge il nome dell proprietario quando si farà la tabella */}
               <p className="p-0 m-0">{property.address}</p>
               <p>{property.description}</p>
-              <p className="text-end fw-bolder"> €120 / giorno</p>
+              {/* <p className="text-end fw-bolder"> €120 / giorno</p> */}
             </div>
             <hr className="line" />
 
@@ -154,7 +153,7 @@ export default function ShowPropertyPage() {
 
             <hr className="line" />
 
-            <div className="d-flex flex-column flex-sm-row justify-content-md-between ">
+            <div className="d-flex flex-column flex-md-row justify-content-md-between ">
               {" "}
               {/*revi */}
               <div className="row">
@@ -171,7 +170,7 @@ export default function ShowPropertyPage() {
               </div>
               <div>
                 {/*form for add reviews */}
-                <div className="form-box m-3">
+                <div className="w-100 form-box m-3 w-md-100">
                   <div className="mb-3">
                     <label htmlFor="nome" className="form-label">
                       Nome
@@ -219,12 +218,16 @@ export default function ShowPropertyPage() {
                     ></textarea>
                   </div>
                 </div>
-                <div className="m-3">
-                  {/*email and botton */}
-                  <div>
-                   <strong> Per maggiori informazioni scriva alla seguente mail:</strong>
 
-                  <p className="login-text">{property.email}</p>
+                {/*email and botton */}
+                <div className="m-3">
+                  <div>
+                    <strong>
+                      {" "}
+                      Per maggiori informazioni scriva alla seguente mail:
+                    </strong>
+
+                    <p className="login-text">{property.email}</p>
                   </div>
                   <Button
                     className="btn btn-red"
@@ -244,12 +247,14 @@ export default function ShowPropertyPage() {
                 />
               </div>
               <div>
-                <h2 className="fw-bolder">Adolfo Hernandez AH</h2>
+                <h2 className="fw-bolder">
+                  {property.host_name} {property.host_surname}
+                </h2>
                 <p>
                   <span>
                     <Stars rating={4} />
                   </span>{" "}
-                  &nbsp; &nbsp; 25 recessioni &nbsp; &nbsp; tasso di risposta:
+                  &nbsp; &nbsp; 25 recensioni &nbsp; &nbsp; tasso di risposta:
                   100% &nbsp; &nbsp; Tempo di risposta: 60min
                 </p>
               </div>

@@ -59,7 +59,7 @@ body {
   background-color: #8338ec;
   color: white;
 }
-.login-text:hover{
+.login-text:hover {
   color: #8338ec;
   cursor: pointer;
 }
@@ -186,18 +186,18 @@ input[type="range"]::-webkit-slider-thumb:focus {
   border-radius: 50%;
 }
 /* punto tra stelle e soggiorno */
-.fa-circle{
+.fa-circle {
   font-size: 0.2rem;
   padding: 0 2px;
 }
 
 /* font size rating e soggiorno */
-.stars-stay{
+.stars-stay {
   font-size: 0.75rem;
 }
 
 /* stars icons Rating */
-.stars-size{
+.stars-size {
   font-size: 0.6rem;
 }
 .stars-size i {
@@ -205,15 +205,15 @@ input[type="range"]::-webkit-slider-thumb:focus {
 }
 
 /* separation line */
-.line{
+.line {
   width: 100%;
   max-width: 800px;
-  margin: 20px 0 20px ;
+  margin: 20px 0 20px;
 }
 
 /* form box input */
-.form-box{
-  width: 250px;
+.form-box {
+  width: 250px !important;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 10px 20px;
@@ -221,22 +221,22 @@ input[type="range"]::-webkit-slider-thumb:focus {
 }
 
 /* map section */
-.map-location{
+.map-location {
   margin: 50px 0;
 }
-.map-location iframe{
+.map-location iframe {
   width: 100%;
 }
 
 /* host info */
-.host{
+.host {
   margin: 20px 0;
 }
-.host img{
+.host img {
   width: 80px;
   border-radius: 50%;
   margin-right: 30px;
 }
-.host h2{
+.host h2 {
   margin-top: 10px;
 }
