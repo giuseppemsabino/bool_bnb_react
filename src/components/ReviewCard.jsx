@@ -1,13 +1,33 @@
+import Stars from "./Stars";
+
 export default function ReviewCard({ review }) {
   return (
-    <div className="card">
-      <div className="card-body">
-        <img src={review.user_img} className="img-fluid" />
-        <span className="card-title">{`${review.name} ${review.surname}`}</span>
-        <p className="card-text">{review.content}</p>
-        <span>{review.stay_days}</span>
-        <h5>{review.start_date.slice(0, 10)}</h5>
+    <div className="d-flex flex-column border-top p-2">
+      <div className="d-flex">
+        <div className="review-top-side m-2">
+          <img className="" src={review.user_img} alt="" />
+        </div>
+
+        <div className="">
+          <div>
+            <p className="p-0 m-0">
+              <strong>
+                {review.name} {review.surname}
+              </strong>
+            </p>
+          </div>
+          <div className="d-flex stars-stay ">
+            <div>
+              <span>
+                <Stars rating={review.rating} />{" "}
+              </span>
+            </div>
+            
+            <div className="d-flex align-items-center px-1"><i className="fa-solid fa-circle"></i> Soggiorno di: {review.stay_days} giorni</div>
+          </div>
+        </div>
       </div>
+      <div className="">{review.content}</div>
     </div>
   );
 }
