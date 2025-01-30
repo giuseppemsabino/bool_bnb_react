@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
-import Button from "../../components/Button";
-import ReviewCard from "../../components/ReviewCard";
-import ReviewsForm from "../../components/ReviewsForm";
+import Button from "../../components/elements/Button";
+import ReviewCard from "../../components/reviews/ReviewCard";
+import ReviewsForm from "../../components/reviews/ReviewsForm";
 
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
@@ -168,6 +168,7 @@ export default function ShowPropertyPage() {
               />
               <div>
                 <Button
+                  type="button"
                   className="btn btn-danger"
                   onClick={() => handleDeleteProperty(property.id)}
                 >

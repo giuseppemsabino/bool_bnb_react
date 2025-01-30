@@ -1,5 +1,5 @@
-import Button from "./Button";
-import Stars from "./Stars";
+import Button from "../elements/Button";
+import Stars from "../functions/Stars";
 
 export default function ReviewCard({ review, fetchProperty, propertyId }) {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -20,7 +20,7 @@ export default function ReviewCard({ review, fetchProperty, propertyId }) {
 
   return (
     <div className="col-lg-6 d-flex flex-column">
-      <div className="d-flex gap-2 py-2 mx-2 border-top">
+      <div className="d-flex gap-2 pt-3 mx-2 border-top">
         <div>
           <img id="userImg" src={review.user_img} />
         </div>

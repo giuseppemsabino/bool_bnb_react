@@ -1,8 +1,8 @@
 import { useState } from "react";
-import PropertiesTypeInputGroup from "../../components/PropertiesTypeInputGroup";
-import Counter from "../../components/Counter";
 import { useNavigate } from "react-router-dom";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
+import Counter from "../../components/functions/Counter";
+import PropertiesTypeInputGroup from "../../components/elements/PropertiesTypeInputGroup";
 
 export default function StoreProperty() {
   // declarations
@@ -41,7 +41,7 @@ export default function StoreProperty() {
       .then((data) => {
         alert(data.message);
         fetchProperties();
-        navigate(-1);
+        navigate("/properties");
       });
   }
 

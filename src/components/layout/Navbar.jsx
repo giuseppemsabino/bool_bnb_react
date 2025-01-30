@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import Button from "./Button";
+import Button from "../elements/Button";
 import { useState } from "react";
 export default function Navbar() {
   const [homeNavItem, setHomeNavItem] = useState("");
