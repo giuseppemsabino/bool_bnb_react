@@ -1,5 +1,5 @@
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
-import Card from "../../components/Card";
+import Card from "../../components/elements/Card";
 import Carousel from "../../components/Carousel";
 import { useState } from "react";
 

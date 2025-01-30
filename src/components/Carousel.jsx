@@ -13,8 +13,6 @@ export default function Carousel({
   };
   const [searchInput, setSearchInput] = useState(defaultSearchInput);
 
-  console.log(filteredProperties);
-
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -42,7 +40,7 @@ export default function Carousel({
         <div className="carousel-inner">
           {imagesList.map((image, index) => {
             return (
-              <div className="carousel-item active">
+              <div key={index} className="carousel-item active">
                 <img src={`/${image}`} className="d-block" alt={index} />
               </div>
             );
