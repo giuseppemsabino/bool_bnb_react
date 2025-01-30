@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import SearchPage from "./pages/SearchPage";
 import DefaultLayout from "./layouts/DefaultLayout";
 import PropertiesContextProvider from "./contexts/PropertiesContext";
 import IndexPropertiesPage from "./pages/properties/IndexPropertiesPage";
@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<IndexPropertiesPage />} />
+            <Route path="search" element={<SearchPage />} />
             <Route path="properties">
-              <Route index element={<IndexPropertiesPage />} />
               <Route path=":id" element={<ShowPropertyPage />} />
               <Route path="insert" element={<StoreProperty />} />
             </Route>
