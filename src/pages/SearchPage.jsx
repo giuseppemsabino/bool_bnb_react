@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { usePropertiesContext } from "../contexts/PropertiesContext";
-import Card from "../components/Card";
-import PropertiesTypeInputGroup from "../components/PropertiesTypeInputGroup";
-import Counter from "../components/Counter";
+import Card from "../components/elements/Card";
+import PropertiesTypeInputGroup from "../components/elements/PropertiesTypeInputGroup";
+import Counter from "../components/functions/Counter";
 
 export default function HomePage() {
   const { properties, types } = usePropertiesContext();

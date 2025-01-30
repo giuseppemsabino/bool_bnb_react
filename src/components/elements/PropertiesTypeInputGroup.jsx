@@ -1,4 +1,4 @@
-import { usePropertiesContext } from "../contexts/PropertiesContext";
+import { usePropertiesContext } from "../../contexts/PropertiesContext";
 
 export default function PropertiesTypeInputGroup({ handleFunction, idValue }) {
   const { types } = usePropertiesContext();

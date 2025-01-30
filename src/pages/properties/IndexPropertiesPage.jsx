@@ -1,5 +1,5 @@
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
-import Card from "../../components/Card";
+import Card from "../../components/elements/Card";
 
 export default function IndexPropertiesPage() {
   const { properties } = usePropertiesContext();
