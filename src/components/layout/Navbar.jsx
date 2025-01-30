@@ -30,9 +30,6 @@ export default function Navbar() {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -43,11 +40,7 @@ export default function Navbar() {
                 className={`nav-item ${listingsNavItem}`}
                 onClick={() => handleSelectedNavItem("listings")}
               >
-                <NavLink
-                  className="nav-link active fs-6"
-                  aria-current="page"
-                  to="/"
-                >
+                <NavLink className="nav-link active fs-6" to="/">
                   Home
                 </NavLink>
               </li>
@@ -56,11 +49,7 @@ export default function Navbar() {
                 className={`nav-item ${homeNavItem}`}
                 onClick={() => handleSelectedNavItem("home")}
               >
-                <NavLink
-                  className="nav-link active fs-6"
-                  aria-current="page"
-                  to="/search"
-                >
+                <NavLink className="nav-link active fs-6" to="/search">
                   Ricerca avanzata
                 </NavLink>
               </li>
