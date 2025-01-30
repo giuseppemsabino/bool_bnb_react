@@ -127,10 +127,11 @@ input[type="range"]::-webkit-slider-thumb:focus {
 }
 
 /* img user reviews */
-.review-top-side img {
+#userImg {
   width: 50px;
   border-radius: 50%;
 }
+
 /* punto tra stelle e soggiorno */
 .fa-circle {
   font-size: 0.2rem;
@@ -149,11 +150,8 @@ input[type="range"]::-webkit-slider-thumb:focus {
 }
 
 /* form box input */
-.form-box {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
+.shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* map section */

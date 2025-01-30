@@ -1,14 +1,29 @@
+import Button from "./Button";
 import Stars from "./Stars";
 
 export default function ReviewCard({ review }) {
+  const handleDeleteReview = (id) => {
+    const url = `${apiUrl}/api/properties/reviews/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        fetchProperty(propertyId);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
-    <div className="d-flex flex-column border-top p-2 h-100">
-      <div className="d-flex">
-        <div className="review-top-side m-2">
-          <img className="" src={review.user_img} alt="" />
+    <div className="col-lg-6 d-flex flex-column">
+      <div className="d-flex gap-2 py-2 mx-2 border-top">
+        <div>
+          <img id="userImg" src={review.user_img} />
         </div>
 
-        <div className="">
+        <div>
           <div>
             <p className="p-0 m-0">
               <strong>
@@ -29,8 +44,15 @@ export default function ReviewCard({ review }) {
             </div>
           </div>
         </div>
+        <div className="ms-auto">
+          <Button className="btn" onClick={() => handleDeleteReview(review.id)}>
+            <i className="fa-solid fa-xmark"></i>
+          </Button>
+        </div>
       </div>
-      <div className="">{review.content}</div>
+      <div className="col py-2">
+        <p>{review.content}</p>
+      </div>
     </div>
   );
 }
