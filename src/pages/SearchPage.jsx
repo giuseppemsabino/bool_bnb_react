@@ -5,7 +5,7 @@ import PropertiesTypeInputGroup from "../components/PropertiesTypeInputGroup";
 import Counter from "../components/Counter";
 import InputSearchBar from "../components/InputSearchBar";
 
-export default function HomePage() {
+export default function SearchPage() {
   const { properties, types } = usePropertiesContext();
   const defaultSearchInput = {
     text: "",
@@ -19,30 +19,8 @@ export default function HomePage() {
   const [searchInput, setSearchInput] = useState(defaultSearchInput);
   const [filteredProperties, setFilteredProperties] = useState([]);
 
-  function handleChangeInput(e) {
-    setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
-
-    setFilteredProperties(
-      properties.filter((property) => {
-        return (
-          property.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
-          property.address.toLowerCase().includes(e.target.value.toLowerCase())
-        );
-      })
-    );
-  }
-
   function handleChangeFilters(e) {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
-  }
-
-  function handleSearchBar(e) {
-    e.preventDefault();
-    setSearchInput({ ...searchInput, text: "" });
-  }
-
-  function handleInputSearchBarValue() {
-    return searchInput.text;
   }
 
   function handleSubmit(e) {
@@ -98,13 +76,13 @@ export default function HomePage() {
     <>
       <div className="container">
         <div>
-          <form onSubmit={handleSearchBar}>
-            <h1 className="my-4">Cerca il tuo immobile</h1>
-            <InputSearchBar
-              handleInputSearchBarValue={handleInputSearchBarValue}
-              handleChangeInput={handleChangeInput}
-            />
-          </form>
+          <InputSearchBar
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            setFilteredProperties={setFilteredProperties}
+            properties={properties}
+            searchpage={true}
+          />
         </div>
 
         {/* FILTRI APPLICATI */}

@@ -1,4 +1,24 @@
-export default function Carousel({ imagesList, homepage }) {
+import InputSearchBar from "./InputSearchBar";
+import { useState } from "react";
+
+export default function Carousel({
+  imagesList,
+  homepage,
+  filteredProperties,
+  setFilteredProperties,
+  properties,
+}) {
+  const defaultSearchInput = {
+    text: "",
+  };
+  const [searchInput, setSearchInput] = useState(defaultSearchInput);
+
+  console.log(filteredProperties);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <div
@@ -9,6 +29,14 @@ export default function Carousel({ imagesList, homepage }) {
         {homepage && (
           <div className="homepage-floating-title">
             <h1 className="homepage-tile">Titolo d'effetto</h1>
+            <InputSearchBar
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+              setFilteredProperties={setFilteredProperties}
+              properties={properties}
+              searchpage={false}
+              handleSubmit={handleSubmit}
+            />
           </div>
         )}
         <div className="carousel-inner">

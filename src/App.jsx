@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<IndexPropertiesPage />} />
-            <Route path="search" element={<SearchPage />} />
             <Route path="properties">
+              <Route index element={<SearchPage />} />
               <Route path=":id" element={<ShowPropertyPage />} />
               <Route path="insert" element={<StoreProperty />} />
             </Route>

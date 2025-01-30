@@ -61,7 +61,7 @@ export default function Navbar() {
                 <NavLink
                   className="nav-link active fs-6"
                   aria-current="page"
-                  to="/search"
+                  to="/properties"
                 >
                   Ricerca avanzata
                 </NavLink>
