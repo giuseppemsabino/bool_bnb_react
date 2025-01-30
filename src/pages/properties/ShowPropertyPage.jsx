@@ -66,28 +66,24 @@ export default function ShowPropertyPage() {
     <>
       {property && (
         <div>
+          <h1 className="mt-3">DETTAGLIO IMMOBILE</h1>
           <div>
-            <div className="d-flex justify-content-between mt-3 ">
+            <div className="mt-3">
               <div>
                 <h2 className="fw-bold">{property.title}</h2>
-              </div>
-              <div>
-                <span className="text-center share-btn">
-                  <i className="fa-solid fa-arrow-up-from-bracket" /> condividi
-                </span>
               </div>
             </div>
 
             {/* collage section with images of the place  */}
             <div className="collage-images d-flex  justify-content-center">
               <div className="col-md-6 col-lg-6 px-1">
-                <img className="" src={property.image} />
+                <img className="img-fluid" src={property.image} />
               </div>
-              <div className="col-12 col-sm-6 col-lg-6  d-flex justify-content-center align-items-center flex-column">
+              <div className="col-12 col-sm-6 col-lg-6  d-flex justify-content-between align-items-center flex-column">
                 {/* rating card */}
                 <div>
                   <div className="rating-view px-lg-5 py-lg-3">
-                    <div className="p-2 text-center text-wrap fw-bolder">
+                    <div className="p-2 text-center fw-bolder">
                       <span>
                         Consigli <br /> del viaggiatore
                       </span>
@@ -107,7 +103,7 @@ export default function ShowPropertyPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="badge-section">
+                  <div className="badge-section border border-dark rounded p-3">
                     <span className="badge text-bg-badge m-1">
                       <i className="fa-solid fa-bed"> </i> {property.n_beds}{" "}
                       Letti
@@ -161,10 +157,10 @@ export default function ShowPropertyPage() {
 
             <hr />
 
-            <div className="d-flex flex-column flex-md-row justify-content-md-between ">
-              {" "}
+            <div className="d-flex flex-column">
               {/*review */}
               <div className="row">
+                <h3>RECENSIONI</h3>
                 {/*all reviews */}
                 {reviews.length > 0 ? (
                   reviews.map((review) => (
@@ -178,30 +174,31 @@ export default function ShowPropertyPage() {
               </div>
               <div>
                 {/*form for add reviews */}
-                <div className="w-100 form-box m-3 w-md-100">
-                  <div className="mb-3">
+                <div className="row form-box m-3">
+                  <h3>SCRIVI LA TUA RECENSIONE</h3>
+                  <div className="col-6 mb-3">
                     <label htmlFor="nome" className="form-label">
                       Nome
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
                       id="nome"
                       placeholder="Aggiungi il tuo nome"
                     />
                   </div>
-                  <div className="mb-3">
+                  <div className="col-6">
                     <label htmlFor="cognome" className="form-label">
                       Cognome
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
                       id="cognome"
                       placeholder="Aggiungi il tuo cognome"
                     />
                   </div>
-                  <div className="mb-3">
+                  <div className="col-12">
                     <label
                       htmlFor="exampleFormControlInput1"
                       className="form-label"
@@ -215,7 +212,7 @@ export default function ShowPropertyPage() {
                       placeholder="name@example.com"
                     />
                   </div>
-                  <div className="mb-3">
+                  <div className="col-12 my-3">
                     <label htmlFor="content" className="form-label">
                       Scrivi come è andato il tuo soggiorno
                     </label>
@@ -227,7 +224,7 @@ export default function ShowPropertyPage() {
                   </div>
                 </div>
 
-                {/*email and botton */}
+                {/*email and button */}
                 <div className="m-3">
                   <div>
                     <strong>
@@ -244,27 +241,6 @@ export default function ShowPropertyPage() {
                     Elimina immobile
                   </Button>
                 </div>
-              </div>
-            </div>
-
-            <div className="host d-flex aling-items-sm-center flex-column flex-sm-row">
-              <div className="d-flex justify-content-center ">
-                <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                  alt=""
-                />
-              </div>
-              <div>
-                <h2 className="fw-bolder">
-                  {property.host_name} {property.host_surname}
-                </h2>
-                <p>
-                  <span>
-                    <Stars rating={4} />
-                  </span>{" "}
-                  &nbsp; &nbsp; 25 recensioni &nbsp; &nbsp; tasso di risposta:
-                  100% &nbsp; &nbsp; Tempo di risposta: 60min
-                </p>
               </div>
             </div>
           </div>
