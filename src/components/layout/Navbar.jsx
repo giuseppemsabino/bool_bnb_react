@@ -18,12 +18,12 @@ export default function Navbar() {
   // TODO: sistemare setHomeNavItem, selezionamento elementi navbar
 
   return (
-    <nav className="navbar navbar-expand-md bg-body-tertiary">
+    <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top">
       <div className="container-fluid">
         <Link
           className="navbar-brand fs-5"
           to="/"
-          onClick={() => handleSelectedNavItem("home")}
+          onClick={() => handleSelectedNavItem("listings")}
         >
           BoolB&B
         </Link>

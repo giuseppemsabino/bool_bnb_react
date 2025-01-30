@@ -17,7 +17,7 @@ export default function Carousel({
   }
 
   return (
-    <>
+    <div className="position-fixed z-index">
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide"
@@ -71,6 +71,6 @@ export default function Carousel({
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-    </>
+    </div>
   );
 }

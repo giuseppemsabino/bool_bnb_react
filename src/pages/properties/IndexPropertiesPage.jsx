@@ -21,9 +21,10 @@ export default function IndexPropertiesPage() {
         setFilteredProperties={setFilteredProperties}
         properties={properties}
       ></Carousel>
+      <div className="empty-container"></div>
+
       <div className="container">
-        <h1 className="mt-3">TUTTI GLI IMMOBILI</h1>
-        <div className="row g-3 mt-3">
+        <div className="row g-3 my-3">
           {properties.map((property) => (
             <Card property={property} key={property.id} />
           ))}
