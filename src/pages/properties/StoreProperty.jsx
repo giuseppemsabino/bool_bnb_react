@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropertiesTypeInputGroup from "../../components/PropertiesTypeInputGroup";
 import Counter from "../../components/Counter";
 import { useNavigate } from "react-router-dom";
+import { usePropertiesContext } from "../../contexts/PropertiesContext";
 
 export default function StoreProperty() {
   // declarations
@@ -20,6 +21,7 @@ export default function StoreProperty() {
     square_meters: 0,
   };
 
+  const { fetchProperties } = usePropertiesContext();
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState(defaultFormData);
@@ -34,8 +36,13 @@ export default function StoreProperty() {
       headers: {
         "Content-type": "application/json",
       },
-    });
-    navigate(-1);
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert(data.message);
+        fetchProperties();
+        navigate(-1);
+      });
   }
 
   function handleInputFormData(e) {

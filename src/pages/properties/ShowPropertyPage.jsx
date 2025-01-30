@@ -25,20 +25,23 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         setProperty(data.property);
-        const newReviews = data.reviews;
-        const reviewsAvg = () => {
-          const reviewRatings = [];
 
-          newReviews.forEach((review) =>
-            reviewRatings.push(parseInt(review.rating))
-          );
+        if (data.reviews.length) {
+          const newReviews = data.reviews;
+          const reviewsAvg = () => {
+            const reviewRatings = [];
 
-          return (
-            reviewRatings.reduce((sum, rating) => sum + rating) /
-            reviewRatings.length
-          );
-        };
-        setReviews({ list: newReviews, reviewsAvg: reviewsAvg() });
+            newReviews.forEach((review) =>
+              reviewRatings.push(parseInt(review.rating))
+            );
+
+            return (
+              reviewRatings.reduce((sum, rating) => sum + rating) /
+              reviewRatings.length
+            );
+          };
+          setReviews({ list: newReviews, reviewsAvg: reviewsAvg() });
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -94,14 +97,14 @@ export default function ShowPropertyPage() {
                     <h4>
                       <i className="fa-solid fa-star mx-1"></i>
                       <span className="px-2">
-                        {reviews.reviewsAvg.toFixed(1)}
+                        {reviews.reviewsAvg && reviews.reviewsAvg.toFixed(1)}
                       </span>
                       <a
                         className="link-secondary link-offset-2"
                         href="#reviewsSection"
                       >
                         <span className="px-2 border-start border-dark">
-                          {reviews.list.length} Recensioni
+                          {reviews.list && reviews.list.length} Recensioni
                         </span>
                       </a>
                     </h4>
@@ -146,15 +149,23 @@ export default function ShowPropertyPage() {
             <div className="d-flex flex-column my-4" id="reviewsSection">
               <div className="row g-2 my-4">
                 <h3>RECENSIONI</h3>
-                {reviews.list.length > 0 ? (
+                {reviews.list && reviews.list.length > 0 ? (
                   reviews.list.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
+                    <ReviewCard
+                      key={review.id}
+                      review={review}
+                      fetchProperty={fetchProperty}
+                      propertyId={property.id}
+                    />
                   ))
                 ) : (
                   <p>No reviews</p>
                 )}
               </div>
-              <ReviewsForm propertyId={property.id} />
+              <ReviewsForm
+                fetchProperty={fetchProperty}
+                propertyId={property.id}
+              />
               <div>
                 <Button
                   className="btn btn-danger"

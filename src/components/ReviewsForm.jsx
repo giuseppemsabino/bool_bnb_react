@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ReviewsForm({ propertyId }) {
+export default function ReviewsForm({ propertyId, fetchProperty }) {
   const defaultFormData = {
     name: "",
     surname: "",
@@ -29,8 +29,11 @@ export default function ReviewsForm({ propertyId }) {
       },
     })
       .then((res) => res.json())
-      .then((data) => alert(data.message));
-    setFormData(defaultFormData);
+      .then((data) => {
+        alert(data.message);
+        setFormData(defaultFormData);
+        fetchProperty(propertyId);
+      });
   };
 
   return (
@@ -120,7 +123,7 @@ export default function ReviewsForm({ propertyId }) {
           />
         </div>
         <div className="col-12">
-          <label htmlFor="content" className="form-label">
+          <label htmlFor="contentInput" className="form-label">
             Scrivi come è andato il tuo soggiorno
           </label>
           <textarea
@@ -128,7 +131,7 @@ export default function ReviewsForm({ propertyId }) {
             value={formData.content}
             onChange={handleFormData}
             className="form-control"
-            id="content"
+            id="contentInput"
             rows="3"
             required
           ></textarea>

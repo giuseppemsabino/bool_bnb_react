@@ -1,7 +1,9 @@
 import Button from "./Button";
 import Stars from "./Stars";
 
-export default function ReviewCard({ review }) {
+export default function ReviewCard({ review, fetchProperty, propertyId }) {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleDeleteReview = (id) => {
     const url = `${apiUrl}/api/properties/reviews/${id}`;
     fetch(url, {
