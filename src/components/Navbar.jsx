@@ -40,27 +40,28 @@ export default function Navbar() {
           <div className="d-flex justify-content-between w-100">
             <ul className="navbar-nav g-5">
               <li
-                className={`nav-item ${homeNavItem}`}
-                onClick={() => handleSelectedNavItem("home")}
-              >
-                <NavLink
-                  className="nav-link active fs-6"
-                  aria-current="page"
-                  to="/"
-                >
-                  Cerca il tuo immobile
-                </NavLink>
-              </li>
-              <li
                 className={`nav-item ${listingsNavItem}`}
                 onClick={() => handleSelectedNavItem("listings")}
               >
                 <NavLink
                   className="nav-link active fs-6"
                   aria-current="page"
-                  to="/properties"
+                  to="/"
                 >
-                  Lista immobili
+                  Home
+                </NavLink>
+              </li>
+
+              <li
+                className={`nav-item ${homeNavItem}`}
+                onClick={() => handleSelectedNavItem("home")}
+              >
+                <NavLink
+                  className="nav-link active fs-6"
+                  aria-current="page"
+                  to="/search"
+                >
+                  Ricerca avanzata
                 </NavLink>
               </li>
             </ul>
@@ -74,7 +75,7 @@ export default function Navbar() {
                 </Link>
               </div>
               <Button className="btn login-text" onClick={() => alert("test")}>
-                <i className="fa-solid fa-circle-user"></i>{" "}
+                <i className="fa-solid fa-circle-user"></i>
                 <span className="fw-semibold "> Login </span>
               </Button>
             </div>
