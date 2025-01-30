@@ -88,17 +88,19 @@ export default function ShowPropertyPage() {
                 <div>
                   <div className="rating-view px-lg-5 py-lg-3">
                     <div className="p-2 text-center text-wrap fw-bolder">
-                      Consigli <br /> del viaggiatore
+                      <span>
+                        Consigli <br /> del viaggiatore
+                      </span>
                     </div>
                     <div className="p-2 border-end">
-                      <p>Uno dei piu amati</p>
+                      <span>Uno dei piu amati</span>
                     </div>
 
                     <div className="p-2 d-flex flex-column align-items-center">
-                      <div>5</div>
+                      <div>4</div>
                       <p className="stars-size">
                         <span>
-                          <Stars rating={3} />
+                          <Stars rating={4} />
                         </span>
                       </p>
                     </div>
@@ -122,7 +124,7 @@ export default function ShowPropertyPage() {
                 </div>
                 <div>
                   <h5>
-                    Alloggio di tipo:{" "}
+                    Tipo di Alloggio:{" "}
                     <span className="badge text-bg-badge my-2">
                       {property.type_name}
                     </span>
@@ -132,18 +134,24 @@ export default function ShowPropertyPage() {
             </div>
 
             <div className="py-2">
-              <h3>Host della proprietà: {property.host_name} </h3>
+              <h3>
+                Host della proprietà: {property.host_name}{" "}
+                {property.host_surname}
+              </h3>
               {/* qua si aggiunge il nome dell proprietario quando si farà la tabella */}
-              <p className="p-0 m-0">{property.address}</p>
-              <p>{property.description}</p>
+              <h6 className="fw-semibold">
+                Descrizione:{" "}
+                <span className="fw-normal">{property.description}</span>
+              </h6>
               {/* <p className="text-end fw-bolder"> €120 / giorno</p> */}
             </div>
-            <hr className="line" />
+            <hr />
 
             <div className="map-location">
               {" "}
               {/*map section */}
               <h3>Posizione del immobile</h3>
+              <h4 className="text-decoration-underline">{property.address}</h4>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149284.69820229863!2d8.980461539844416!3d45.953023351296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47843d32820b62f7%3A0x3e40c4eae898e1e0!2sLago%20di%20Garda!5e0!3m2!1sit!2sit!4v1738079658449!5m2!1sit!2sit"
                 height="450"
@@ -151,11 +159,11 @@ export default function ShowPropertyPage() {
               ></iframe>
             </div>
 
-            <hr className="line" />
+            <hr />
 
             <div className="d-flex flex-column flex-md-row justify-content-md-between ">
               {" "}
-              {/*revi */}
+              {/*review */}
               <div className="row">
                 {/*all reviews */}
                 {reviews.length > 0 ? (

@@ -2,7 +2,7 @@ import Stars from "./Stars";
 
 export default function ReviewCard({ review }) {
   return (
-    <div className="d-flex flex-column border-top p-2">
+    <div className="d-flex flex-column border-top p-2 h-100">
       <div className="d-flex">
         <div className="review-top-side m-2">
           <img className="" src={review.user_img} alt="" />
@@ -22,8 +22,11 @@ export default function ReviewCard({ review }) {
                 <Stars rating={review.rating} />{" "}
               </span>
             </div>
-            
-            <div className="d-flex align-items-center px-1"><i className="fa-solid fa-circle"></i> Soggiorno di: {review.stay_days} giorni</div>
+
+            <div className="d-flex align-items-center px-1">
+              <i className="fa-solid fa-circle"></i> Soggiorno di:{" "}
+              {review.stay_days} giorni
+            </div>
           </div>
         </div>
       </div>

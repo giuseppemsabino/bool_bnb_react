@@ -49,6 +49,7 @@ export default function Card({ property }) {
                   <i className="fa-solid fa-ruler-combined mx-1"></i>
                   {property.square_meters}
                 </span>
+                <p>{property.address}</p>
               </div>
             </div>
           </div>
