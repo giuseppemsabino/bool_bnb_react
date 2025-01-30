@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export default function InputSearchBar({
   searchInput,
   setSearchInput,
@@ -5,6 +7,8 @@ export default function InputSearchBar({
   properties,
   searchpage,
 }) {
+  const navigate = useNavigate();
+
   function handleChangeInput(e) {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
   }
@@ -55,6 +59,7 @@ export default function InputSearchBar({
           </button>
         ) : (
           <button
+            onClick={() => navigate("/properties")}
             type="submit"
             className="col-2 btn btn-outline-dark d-flex align-items-center justify-content-center"
           >

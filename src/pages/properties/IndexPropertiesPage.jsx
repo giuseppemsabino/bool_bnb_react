@@ -1,11 +1,10 @@
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
 import Card from "../../components/elements/Card";
 import Carousel from "../../components/Carousel";
-import { useState } from "react";
 
 export default function IndexPropertiesPage() {
-  const { properties } = usePropertiesContext();
-  const [filteredProperties, setFilteredProperties] = useState([]);
+  const { properties, filteredProperties, setFilteredProperties } =
+    usePropertiesContext();
 
   const jumboCoversList = [
     "jumbo-cover-1.jpg",

@@ -6,7 +6,8 @@ import Counter from "../components/functions/Counter";
 import InputSearchBar from "../components/InputSearchBar";
 
 export default function SearchPage() {
-  const { properties, types } = usePropertiesContext();
+  const { properties, types, filteredProperties, setFilteredProperties } =
+    usePropertiesContext();
   const defaultSearchInput = {
     text: "",
     rooms: 0,
@@ -17,7 +18,6 @@ export default function SearchPage() {
   };
 
   const [searchInput, setSearchInput] = useState(defaultSearchInput);
-  const [filteredProperties, setFilteredProperties] = useState([]);
 
   function handleChangeFilters(e) {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
@@ -84,10 +84,6 @@ export default function SearchPage() {
             searchpage={true}
           />
         </div>
-
-        {/* FILTRI APPLICATI */}
-        {/* <div className="d-flex gap-3 fs-3">
-      </div> */}
 
         <div className="row mt-5">
           {filteredProperties.map((property) => {

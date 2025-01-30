@@ -4,7 +4,6 @@ import { useState } from "react";
 export default function Carousel({
   imagesList,
   homepage,
-  filteredProperties,
   setFilteredProperties,
   properties,
 }) {
