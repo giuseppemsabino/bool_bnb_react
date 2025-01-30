@@ -15,6 +15,8 @@ export default function Navbar() {
     }
   }
 
+  // TODO: sistemare setHomeNavItem, selezionamento elementi navbar
+
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
@@ -49,7 +51,7 @@ export default function Navbar() {
                 className={`nav-item ${homeNavItem}`}
                 onClick={() => handleSelectedNavItem("home")}
               >
-                <NavLink className="nav-link active fs-6" to="/search">
+                <NavLink className="nav-link active fs-6" to="/properties">
                   Ricerca avanzata
                 </NavLink>
               </li>
