@@ -45,64 +45,10 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* elimina button  */
-.btn-red {
-  background-color: #f72585;
-  color: white;
-}
-.btn-red:hover {
-  background-color: #b8001c;
-  color: white;
-}
-/* badge color */
-.text-bg-badge {
-  background-color: #8338ec;
-  color: white;
-}
-.login-text:hover {
-  color: #8338ec;
-  cursor: pointer;
-}
-/* share button  */
-.share-btn:hover {
-  color: #9529ff;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-/* Purple button */
-.btn-purple {
-  background-color: #8338ec;
-  color: white;
-}
-.btn-purple:hover {
-  background-color: #6917b0;
-  color: white;
-  transition: 0.3s;
-}
-
 /* COLLAGE IMAGES SHOW */
-
-.collage-images {
-  max-height: 500px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 
 .collage-images img {
   max-width: 100%;
-}
-
-/* Rating card showpage*/
-.rating-view {
-  border: 1px solid gray;
-
-  margin: 5px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
 }
 
 #heart {
@@ -191,17 +137,8 @@ input[type="range"]::-webkit-slider-thumb:focus {
   padding: 0 2px;
 }
 
-/* font size rating e soggiorno */
-.stars-stay {
-  font-size: 0.75rem;
-}
-
-/* stars icons Rating */
-.stars-size {
-  font-size: 0.6rem;
-}
-.stars-size i {
-  color: #8338ec;
+.fa-star {
+  color: rgb(219, 187, 2);
 }
 
 /* separation line */
@@ -213,7 +150,7 @@ input[type="range"]::-webkit-slider-thumb:focus {
 
 /* form box input */
 .form-box {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 10px 20px;
   margin-bottom: 20px;

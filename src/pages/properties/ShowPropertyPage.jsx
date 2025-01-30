@@ -25,7 +25,20 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         setProperty(data.property);
-        setReviews(data.reviews);
+        const newReviews = data.reviews;
+        const reviewsAvg = () => {
+          const reviewRatings = [];
+
+          newReviews.forEach((review) =>
+            reviewRatings.push(parseInt(review.rating))
+          );
+
+          return (
+            reviewRatings.reduce((sum, rating) => sum + rating) /
+            reviewRatings.length
+          );
+        };
+        setReviews({ list: newReviews, reviewsAvg: reviewsAvg() });
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -63,89 +76,78 @@ export default function ShowPropertyPage() {
   };
 
   return (
-    <>
+    <div className="container">
       {property && (
         <div>
-          <h1 className="mt-3">DETTAGLIO IMMOBILE</h1>
+          <h3 className="mt-3">DETTAGLIO IMMOBILE</h3>
           <div>
-            <div className="mt-3">
-              <div>
-                <h2 className="fw-bold">{property.title}</h2>
-              </div>
+            <div className="my-3">
+              <h1 className="fw-bold">{property.title}</h1>
             </div>
 
-            {/* collage section with images of the place  */}
-            <div className="collage-images d-flex  justify-content-center">
-              <div className="col-md-6 col-lg-6 px-1">
+            <div className="row p-2">
+              <div className="col-md-8">
                 <img className="img-fluid" src={property.image} />
               </div>
-              <div className="col-12 col-sm-6 col-lg-6  d-flex justify-content-between align-items-center flex-column">
-                {/* rating card */}
-                <div>
-                  <div className="rating-view px-lg-5 py-lg-3">
-                    <div className="p-2 text-center fw-bolder">
-                      <span>
-                        Consigli <br /> del viaggiatore
+              <div className="col-md-4 d-flex justify-content-around flex-column">
+                <div className="text-center border-bottom">
+                  <span className="text-decoration-underline">
+                    Proprietario
+                  </span>
+                  <h2>
+                    {property.host_name} {property.host_surname}
+                  </h2>
+                </div>
+                <div className="text-center">
+                  <span className="text-decoration-underline">Descrizione</span>
+                  <p className="fs-5 fw-medium">{property.description}</p>
+                  <span className="text-decoration-underline">
+                    {property.email}
+                  </span>
+                </div>
+                <div className="p-2 d-flex flex-column align-items-center justify-content-center">
+                  <div>
+                    <h4>
+                      <i className="fa-solid fa-star mx-1"></i>
+                      <span className="px-2">
+                        {reviews.reviewsAvg.toFixed(1)}
                       </span>
-                    </div>
-                    <div className="p-2 border-end">
-                      <span>Uno dei piu amati</span>
-                    </div>
-
-                    <div className="p-2 d-flex flex-column align-items-center">
-                      <div>4</div>
-                      <p className="stars-size">
-                        <span>
-                          <Stars rating={4} />
+                      <a
+                        className="link-secondary link-offset-2"
+                        href="#reviewsSection"
+                      >
+                        <span className="px-2 border-start border-dark">
+                          {reviews.list.length} Recensioni
                         </span>
-                      </p>
-                    </div>
+                      </a>
+                    </h4>
                   </div>
                 </div>
-                <div>
-                  <div className="badge-section border border-dark rounded p-3">
-                    <span className="badge text-bg-badge m-1">
-                      <i className="fa-solid fa-bed"> </i> {property.n_beds}{" "}
-                      Letti
-                    </span>
-                    <span className="badge text-bg-badge m-1">
-                      <i className="fa-solid fa-house"> </i> {property.n_rooms}{" "}
-                      Camere
-                    </span>
-                    <span className="badge text-bg-badge m-1">
-                      <i className="fa-solid fa-sink"></i>{" "}
-                      {property.n_bathrooms} Bagni
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <h5>
-                    Tipo di Alloggio:{" "}
-                    <span className="badge text-bg-badge my-2">
-                      {property.type_name}
-                    </span>
-                  </h5>
+
+                <div className="text-center p-2 d-flex justify-content-around">
+                  <span className="badge text-bg-secondary">
+                    <i className={`fa-solid ${property.type_icon} mx-1`}></i>
+                    {property.type_name}
+                  </span>
+                  <span className="badge text-bg-secondary">
+                    <i className="fa-solid fa-bed mx-1"></i>
+                    {property.n_beds} Letti
+                  </span>
+                  <span className="badge text-bg-secondary">
+                    <i className="fa-solid fa-house mx-1"></i>
+                    {property.n_rooms} Camere
+                  </span>
+                  <span className="badge text-bg-secondary">
+                    <i className="fa-solid fa-sink mx-1"></i>
+                    {property.n_bathrooms} Bagni
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="py-2">
-              <h3>
-                Host della proprietà: {property.host_name}{" "}
-                {property.host_surname}
-              </h3>
-              {/* qua si aggiunge il nome dell proprietario quando si farà la tabella */}
-              <h6 className="fw-semibold">
-                Descrizione:{" "}
-                <span className="fw-normal">{property.description}</span>
-              </h6>
-              {/* <p className="text-end fw-bolder"> €120 / giorno</p> */}
-            </div>
             <hr />
 
             <div className="map-location">
-              {" "}
-              {/*map section */}
               <h3>Posizione del immobile</h3>
               <h4 className="text-decoration-underline">{property.address}</h4>
               <iframe
@@ -157,13 +159,11 @@ export default function ShowPropertyPage() {
 
             <hr />
 
-            <div className="d-flex flex-column">
-              {/*review */}
-              <div className="row">
+            <div className="d-flex flex-column my-4 py-4" id="reviewsSection">
+              <div className="row g-5 mb-4">
                 <h3>RECENSIONI</h3>
-                {/*all reviews */}
-                {reviews.length > 0 ? (
-                  reviews.map((review) => (
+                {reviews.list.length > 0 ? (
+                  reviews.list.map((review) => (
                     <div key={review.id} className="col-md-12 col-lg-6">
                       <ReviewCard review={review} />
                     </div>
@@ -173,46 +173,74 @@ export default function ShowPropertyPage() {
                 )}
               </div>
               <div>
-                {/*form for add reviews */}
-                <div className="row form-box m-3">
+                <div className="row g-3 form-box m-3 p-4">
                   <h3>SCRIVI LA TUA RECENSIONE</h3>
-                  <div className="col-6 mb-3">
-                    <label htmlFor="nome" className="form-label">
+                  <div className="col-4">
+                    <label htmlFor="nameInput" className="form-label">
                       Nome
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="nome"
+                      id="nameInput"
                       placeholder="Aggiungi il tuo nome"
                     />
                   </div>
-                  <div className="col-6">
-                    <label htmlFor="cognome" className="form-label">
+                  <div className="col-4">
+                    <label htmlFor="surnameInput" className="form-label">
                       Cognome
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="cognome"
+                      id="surnameInput"
                       placeholder="Aggiungi il tuo cognome"
                     />
                   </div>
-                  <div className="col-12">
-                    <label
-                      htmlFor="exampleFormControlInput1"
-                      className="form-label"
-                    >
-                      Email address
+                  <div className="col-4">
+                    <label htmlFor="emailInput" className="form-label">
+                      Email
                     </label>
                     <input
                       type="email"
                       className="form-control"
-                      id="exampleFormControlInput1"
+                      id="emailInput"
                       placeholder="name@example.com"
                     />
                   </div>
-                  <div className="col-12 my-3">
+                  <div className="col-4">
+                    <label className="form-label" htmlFor="ratingInput">
+                      Voto
+                    </label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Inserisci un voto da 1 a 5"
+                      id="ratingInput"
+                    />
+                  </div>
+                  <div className="col-4">
+                    <label className="form-label" htmlFor="daysInput">
+                      Giorni di permanenza
+                    </label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Inserisci i tuoi giorni di permanenza"
+                      id="daysInput"
+                    />
+                  </div>
+                  <div className="col-4">
+                    <label className="form-label" htmlFor="dateInput">
+                      Data di partenza
+                    </label>
+                    <input
+                      type="date"
+                      className="form-control"
+                      id="dateInput"
+                    />
+                  </div>
+                  <div className="col-12">
                     <label htmlFor="content" className="form-label">
                       Scrivi come è andato il tuo soggiorno
                     </label>
@@ -224,18 +252,9 @@ export default function ShowPropertyPage() {
                   </div>
                 </div>
 
-                {/*email and button */}
                 <div className="m-3">
-                  <div>
-                    <strong>
-                      {" "}
-                      Per maggiori informazioni scriva alla seguente mail:
-                    </strong>
-
-                    <p className="login-text">{property.email}</p>
-                  </div>
                   <Button
-                    className="btn btn-red"
+                    className="btn btn-danger"
                     onClick={() => handleDeleteProperty(property.id)}
                   >
                     Elimina immobile
@@ -246,6 +265,6 @@ export default function ShowPropertyPage() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
