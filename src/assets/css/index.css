@@ -218,3 +218,10 @@ input[type="range"]::-webkit-slider-thumb:focus {
   height: 100%;
   overflow: hidden;
 }
+/* dettagli pagina ricerca avanzata */
+
+.research-placeholder {
+  margin-top: 200px !important;
+  width: 450px;
+  margin-right: 150px;
+}
