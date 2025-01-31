@@ -9,6 +9,7 @@ export default function PropertiesContextProvider({ children }) {
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const [properties, setProperties] = useState([]);
+  const [filteredProperties, setFilteredProperties] = useState([]);
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
@@ -34,7 +35,14 @@ export default function PropertiesContextProvider({ children }) {
 
   return (
     <PropertiesContext.Provider
-      value={{ properties, types, fetchProperties, setProperties }}
+      value={{
+        properties,
+        types,
+        fetchProperties,
+        setProperties,
+        filteredProperties,
+        setFilteredProperties,
+      }}
     >
       {children}
     </PropertiesContext.Provider>
