@@ -1,22 +1,7 @@
-import Button from "../elements/Button";
 import Stars from "../functions/Stars";
 
-export default function ReviewCard({ review, fetchProperty, propertyId }) {
+export default function ReviewCard({ review }) {
   const apiUrl = import.meta.env.VITE_API_URL;
-
-  const handleDeleteReview = (id) => {
-    const url = `${apiUrl}/api/properties/reviews/${id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        fetchProperty(propertyId);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
 
   return (
     <div className="col-lg-6 d-flex flex-column">
@@ -47,9 +32,13 @@ export default function ReviewCard({ review, fetchProperty, propertyId }) {
           </div>
         </div>
         <div className="ms-auto">
-          <Button className="btn" onClick={() => handleDeleteReview(review.id)}>
+          <button
+            className="btn"
+            data-bs-target="#deleteReview"
+            data-bs-toggle="modal"
+          >
             <i className="fa-solid fa-xmark"></i>
-          </Button>
+          </button>
         </div>
       </div>
       <div className="col py-2">
