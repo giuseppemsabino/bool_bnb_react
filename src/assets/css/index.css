@@ -208,3 +208,11 @@ input[type="range"]::-webkit-slider-thumb:focus {
   color: white;
   font-family: "Anton", sans-serif;
 }
+
+/* dettagli pagina ricerca avanzata */
+
+.research-placeholder {
+  margin-top: 200px !important;
+  width: 450px;
+  margin-right: 150px;
+}
