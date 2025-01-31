@@ -13,7 +13,7 @@ export default function Card({ property }) {
       <Link className="text-decoration-none" to={`/properties/${property.id}`}>
         <div className="card h-100">
           <div>
-            <img src={property.image} className="img-fluid" />
+            <img src={property.image[0].img_url} className="img-fluid" />
           </div>
           <div className="card-body">
             <div className="row ">
