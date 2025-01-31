@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { usePropertiesContext } from "../contexts/PropertiesContext";
 
-export default function InputSearchBar({
-  searchInput,
-  setSearchInput,
-  setFilteredProperties,
-  properties,
-  searchpage,
-}) {
+export default function InputSearchBar({ properties, searchpage }) {
+  const { setFilteredProperties } = usePropertiesContext();
+
+  const defaultSearchInput = {
+    text: "",
+  };
+
+  const [searchInput, setSearchInput] = useState(defaultSearchInput);
   const navigate = useNavigate();
 
   function handleChangeInput(e) {
@@ -32,7 +35,6 @@ export default function InputSearchBar({
 
   return (
     <form onSubmit={handleSearchBar}>
-      <h1 className="my-4">Cerca il tuo immobile</h1>
       <div className="row g-1">
         <div className="col-10">
           <input
@@ -47,7 +49,7 @@ export default function InputSearchBar({
 
         {searchpage ? (
           <button
-            className="col-2 btn btn-outline-dark d-flex align-items-center justify-content-center"
+            className="col-2 btn btn-outline-dark"
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
@@ -61,10 +63,10 @@ export default function InputSearchBar({
           <button
             onClick={() => navigate("/properties")}
             type="submit"
-            className="col-2 btn btn-outline-dark d-flex align-items-center justify-content-center"
+            className="col-2 btn btn-dark d-flex align-items-center justify-content-center"
           >
             <h5 className="my-0">
-              <span className="d-none d-md-inline">Cerca</span>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </h5>
           </button>
         )}

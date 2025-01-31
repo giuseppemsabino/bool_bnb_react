@@ -18,7 +18,7 @@ export default function Navbar() {
   // TODO: sistemare setHomeNavItem, selezionamento elementi navbar
 
   return (
-    <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top">
+    <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
         <Link
           className="navbar-brand fs-5"

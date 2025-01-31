@@ -1,46 +1,19 @@
-import InputSearchBar from "./InputSearchBar";
-import { useState } from "react";
-
-export default function Carousel({
-  imagesList,
-  homepage,
-  setFilteredProperties,
-  properties,
-}) {
-  const defaultSearchInput = {
-    text: "",
-  };
-  const [searchInput, setSearchInput] = useState(defaultSearchInput);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
-
+export default function Carousel({ imagesList }) {
   return (
-    <div className="position-fixed z-index">
+    <div>
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        {homepage && (
-          <div className="homepage-floating-title">
-            <h1 className="homepage-tile">Titolo d'effetto</h1>
-            <InputSearchBar
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
-              setFilteredProperties={setFilteredProperties}
-              properties={properties}
-              searchpage={false}
-              handleSubmit={handleSubmit}
-            />
-          </div>
-        )}
         <div className="carousel-inner">
           {imagesList.map((image, index) => {
             return (
-              <div key={index} className="carousel-item active">
-                <img src={`/${image}`} className="d-block" alt={index} />
+              <div
+                key={index}
+                className={`carousel-item ${!index ? "active" : ""}`}
+              >
+                <img src={`/${image}`} className="d-block w-100" />
               </div>
             );
           })}
@@ -51,10 +24,7 @@ export default function Carousel({
           data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="prev"
         >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-prev-icon"></span>
 
           <span className="visually-hidden">Previous</span>
         </button>
@@ -64,10 +34,7 @@ export default function Carousel({
           data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="next"
         >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-next-icon"></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
