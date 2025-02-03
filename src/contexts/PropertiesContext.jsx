@@ -11,7 +11,7 @@ export default function PropertiesContextProvider({ children }) {
   const [properties, setProperties] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [types, setTypes] = useState([]);
-  const [selectedItem, setSelectedItem] = useState("home");
+  const [selectedItem, setSelectedItem] = useState("");
 
   useEffect(() => {
     fetchProperties();

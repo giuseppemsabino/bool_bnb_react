@@ -9,7 +9,7 @@ export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
-  const { fetchProperties } = usePropertiesContext();
+  const { fetchProperties, setSelectedItem } = usePropertiesContext();
 
   const [property, setProperty] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -56,6 +56,7 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         fetchProperties();
+        setSelectedItem("home");
         navigate("/");
       })
 
