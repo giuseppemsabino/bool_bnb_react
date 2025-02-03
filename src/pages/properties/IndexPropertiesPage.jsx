@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function IndexPropertiesPage() {
   const { properties } = usePropertiesContext();
-  const { setFilteredProperties } = usePropertiesContext();
+  const { setFilteredProperties, setSelectedItem } = usePropertiesContext();
   const navigate = useNavigate();
 
   const [firstFiveProperties, setFirstFiveProperties] = useState();
@@ -50,6 +50,7 @@ export default function IndexPropertiesPage() {
         );
       })
     );
+    setSelectedItem("search");
     navigate("/properties");
   }
 
@@ -61,7 +62,11 @@ export default function IndexPropertiesPage() {
         <h1 className="homepage-title anton">
           IL TUO SPAZIO IDEALE, IN UN CLICK!
         </h1>
-        <InputSearchBar properties={properties} searchpage={false} />
+        <InputSearchBar
+          properties={properties}
+          searchpage={false}
+          setSelectedItem={setSelectedItem}
+        />
       </div>
 
       <div className="container">

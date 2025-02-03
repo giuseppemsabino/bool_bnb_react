@@ -28,7 +28,7 @@ export default function Footer() {
             <strong>
               <p>Privacy, Termini e Condizioni</p>
             </strong>
-            <p>Informazione sulla privacy e coockies</p>
+            <p>Informazione sulla privacy e cookies</p>
             <p>Qua trovi i termini e condizioni</p>
           </div>
           <div className="col-md-3 footer-section">

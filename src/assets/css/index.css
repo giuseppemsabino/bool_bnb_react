@@ -36,8 +36,11 @@ body {
 }
 
 .insert-item {
-  padding-top: 10px;
   height: 100%;
+}
+
+.nav-item-insert {
+  padding: 8px;
 }
 
 .nav-item {
@@ -222,7 +225,6 @@ input[type="range"]::-webkit-slider-thumb:focus {
 .research-placeholder {
   margin-top: 200px !important;
   width: 450px;
-  margin-right: 150px;
 }
 
 .address-span {
