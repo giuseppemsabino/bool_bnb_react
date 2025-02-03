@@ -36,8 +36,11 @@ body {
 }
 
 .insert-item {
-  padding-top: 10px;
   height: 100%;
+}
+
+.nav-item-insert {
+  padding: 8px;
 }
 
 .nav-item {

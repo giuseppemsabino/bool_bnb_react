@@ -46,7 +46,7 @@ export default function Navbar() {
               </li>
             </ul>
             <div
-              className={`d-flex align-items-center flex-column flex-sm-row`}
+              className={`d-flex align-items-center flex-column flex-md-row`}
             >
               <div
                 className={`insert-item me-4 insert nav-item ${
@@ -54,7 +54,7 @@ export default function Navbar() {
                 }`}
               >
                 <NavLink
-                  className={`text-decoration-none text-dark nav-link active fs-6 my-1`}
+                  className={`nav-item-insert text-decoration-none text-dark nav-link active fs-6`}
                   onClick={() => setSelectedItem("insert")}
                   to="/properties/insert"
                 >
