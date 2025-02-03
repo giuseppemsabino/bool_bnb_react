@@ -269,6 +269,9 @@ input[type="range"]::-webkit-slider-thumb:focus {
   border-radius: 50%;
   max-height: 300px;
 }
+.team-card :hover{
+  
+}
 
 main {
   min-height: 100vh;
