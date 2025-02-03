@@ -14,7 +14,7 @@ export default function IndexPropertiesPage() {
 
   return (
     <>
-      <Carousel imagesList={jumboCoversList}></Carousel>
+      <Carousel imagesList={jumboCoversList} page="home"></Carousel>
 
       <div className="homepage-floating-title">
         <h1 className="homepage-title">IL TUO SPAZIO IDEALE, IN UN CLICK!</h1>
