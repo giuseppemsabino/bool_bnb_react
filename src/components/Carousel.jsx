@@ -1,4 +1,13 @@
-export default function Carousel({ imagesList }) {
+export default function Carousel({ imagesList, page }) {
+  const newimagesList = imagesList.length
+    ? imagesList
+    : [
+        "/img/placeholder.png",
+        "/img/placeholder.png",
+        "/img/placeholder.png",
+        "/img/placeholder.png",
+      ];
+
   return (
     <div>
       <div
@@ -7,13 +16,17 @@ export default function Carousel({ imagesList }) {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          {imagesList.map((image, index) => {
+          {newimagesList.map((image, index, imagesList) => {
             return (
               <div
                 key={index}
                 className={`carousel-item ${!index ? "active" : ""}`}
               >
-                <img src={`/${image}`} className="d-block" />
+                {page === "home" ? (
+                  <img src={`/img/carousel/${image}`} className="d-block" />
+                ) : (
+                  <img src={`${image}`} className="d-block w-100" />
+                )}
               </div>
             );
           })}

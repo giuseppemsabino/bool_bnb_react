@@ -26,13 +26,13 @@ body {
   border-bottom: 2px solid #6917b0;
 }
 
-.nav-item {
-  border-bottom: 2px solid transparent;
+.insert-item {
+  padding-top: 10px;
+  height: 100%;
 }
 
-.navbar {
-  padding: 0 !important;
-  padding-top: 10px !important;
+.nav-item {
+  border-bottom: 2px solid transparent;
 }
 
 .tag-card-font {
@@ -154,14 +154,6 @@ input[type="range"]::-webkit-slider-thumb:focus {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* map section */
-.map-location {
-  margin: 50px 0;
-}
-.map-location iframe {
-  width: 100%;
-}
-
 /* host info */
 .host {
   margin: 20px 0;
@@ -206,6 +198,9 @@ input[type="range"]::-webkit-slider-thumb:focus {
   text-align: center;
   text-shadow: 8px 5px 18px black;
   color: white;
+}
+
+.anton {
   font-family: "Anton", sans-serif;
 }
 
@@ -230,6 +225,29 @@ input[type="range"]::-webkit-slider-thumb:focus {
   font-size: 0.8rem;
 }
 
+/* popular destination card */
+
+.popular-destination-card {
+  aspect-ratio: 1.5;
+  border: none;
+}
+
+.popular-destination-card:hover {
+  opacity: 0.8;
+  border: 1px solid #6917b0;
+  cursor: pointer;
+}
+
+.popular-destination-card-img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.popular-destination-card-title {
+  text-shadow: 1px 1px 20px black;
+}
 /* footer styles */
 
 footer p {

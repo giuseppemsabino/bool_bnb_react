@@ -4,21 +4,28 @@ import { useState } from "react";
 export default function Navbar() {
   const [homeNavItem, setHomeNavItem] = useState("");
   const [listingsNavItem, setListingsNavItem] = useState("");
+  const [insertNavItem, setInsertNavItem] = useState("");
 
   function handleSelectedNavItem(selectedNavItem) {
     if (selectedNavItem === "home") {
       setHomeNavItem("selected");
       setListingsNavItem("");
+      setInsertNavItem("");
     } else if (selectedNavItem === "listings") {
       setHomeNavItem("");
       setListingsNavItem("selected");
+      setInsertNavItem("");
+    } else if (selectedNavItem === "insert") {
+      setHomeNavItem("");
+      setListingsNavItem("");
+      setInsertNavItem("selected");
     }
   }
 
   // TODO: sistemare setHomeNavItem, selezionamento elementi navbar
 
   return (
-    <nav className="navbar navbar-expand-md bg-body-tertiary ">
+    <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
         <Link
           className="navbar-brand fs-5"
@@ -36,7 +43,7 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <div className="d-flex justify-content-between w-100 py-2">
+          <div className="d-flex justify-content-between w-100">
             <ul className="navbar-nav g-5">
               <li
                 className={`nav-item ${listingsNavItem}`}
@@ -56,14 +63,17 @@ export default function Navbar() {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex align-items-center">
-              <div className="me-4">
-                <Link
-                  className="text-decoration-none text-dark"
+            <div className={`d-flex align-items-center `}>
+              <div
+                className={`insert-item me-4 insert nav-item ${insertNavItem}`}
+              >
+                <NavLink
+                  className={`text-decoration-none text-dark nav-link active fs-6`}
+                  onClick={() => handleSelectedNavItem("insert")}
                   to="/properties/insert"
                 >
                   Inserisci immobili
-                </Link>
+                </NavLink>
               </div>
               <Button className="btn login-text" onClick={() => alert("test")}>
                 <i className="fa-solid fa-circle-user"></i>

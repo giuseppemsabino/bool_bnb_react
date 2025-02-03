@@ -41,7 +41,7 @@ export default function StoreProperty() {
       .then((data) => {
         alert(data.message);
         fetchProperties();
-        navigate("/properties");
+        navigate("/");
       });
   }
 
