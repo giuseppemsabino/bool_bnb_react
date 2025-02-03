@@ -99,7 +99,7 @@ export default function SearchPage() {
           <div className="container d-flex justify-content-center align-items-center">
             <img
               className="research-placeholder img-fluid mt-5"
-              src={`/advanced-research-placeholder.png`}
+              src={`img/searchPage/advanced-research-placeholder.png`}
               alt="Nessun risultato"
             />
           </div>

@@ -198,6 +198,9 @@ input[type="range"]::-webkit-slider-thumb:focus {
   text-align: center;
   text-shadow: 8px 5px 18px black;
   color: white;
+}
+
+.anton {
   font-family: "Anton", sans-serif;
 }
 
@@ -220,4 +223,27 @@ input[type="range"]::-webkit-slider-thumb:focus {
 
 .address-span {
   font-size: 0.8rem;
+}
+
+/* popular destination card */
+
+.popular-destination-card {
+  aspect-ratio: 1.5;
+}
+
+.popular-destination-card:hover {
+  opacity: 0.8;
+  border: 1px solid #6917b0;
+  cursor: pointer;
+}
+
+.popular-destination-card-img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.popular-destination-card-title {
+  text-shadow: 1px 1px 20px black;
 }
