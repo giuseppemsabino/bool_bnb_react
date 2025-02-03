@@ -4,14 +4,21 @@ import { useState } from "react";
 export default function Navbar() {
   const [homeNavItem, setHomeNavItem] = useState("");
   const [listingsNavItem, setListingsNavItem] = useState("");
+  const [insertNavItem, setInsertNavItem] = useState("");
 
   function handleSelectedNavItem(selectedNavItem) {
     if (selectedNavItem === "home") {
       setHomeNavItem("selected");
       setListingsNavItem("");
+      setInsertNavItem("");
     } else if (selectedNavItem === "listings") {
       setHomeNavItem("");
       setListingsNavItem("selected");
+      setInsertNavItem("");
+    } else if (selectedNavItem === "insert") {
+      setHomeNavItem("");
+      setListingsNavItem("");
+      setInsertNavItem("selected");
     }
   }
 
@@ -56,14 +63,17 @@ export default function Navbar() {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex align-items-center">
-              <div className="me-4">
-                <Link
-                  className="text-decoration-none text-dark"
+            <div className={`d-flex align-items-center `}>
+              <div
+                className={`insert-item me-4 insert nav-item ${insertNavItem}`}
+              >
+                <NavLink
+                  className={`text-decoration-none text-dark nav-link active fs-6`}
+                  onClick={() => handleSelectedNavItem("insert")}
                   to="/properties/insert"
                 >
                   Inserisci immobili
-                </Link>
+                </NavLink>
               </div>
               <Button className="btn login-text" onClick={() => alert("test")}>
                 <i className="fa-solid fa-circle-user"></i>

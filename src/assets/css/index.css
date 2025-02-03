@@ -26,13 +26,13 @@ body {
   border-bottom: 2px solid #6917b0;
 }
 
-.nav-item {
-  border-bottom: 2px solid transparent;
+.insert-item {
+  padding-top: 10px;
+  height: 100%;
 }
 
-.navbar {
-  padding: 0 !important;
-  padding-top: 10px !important;
+.nav-item {
+  border-bottom: 2px solid transparent;
 }
 
 .tag-card-font {
@@ -154,14 +154,6 @@ input[type="range"]::-webkit-slider-thumb:focus {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* map section */
-.map-location {
-  margin: 50px 0;
-}
-.map-location iframe {
-  width: 100%;
-}
-
 /* host info */
 .host {
   margin: 20px 0;
@@ -237,6 +229,7 @@ input[type="range"]::-webkit-slider-thumb:focus {
 
 .popular-destination-card {
   aspect-ratio: 1.5;
+  border: none;
 }
 
 .popular-destination-card:hover {
