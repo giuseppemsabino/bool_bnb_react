@@ -26,6 +26,11 @@ body {
   border-bottom: 2px solid #6917b0;
 }
 
+.insert-item {
+  padding-top: 10px;
+  height: 100%;
+}
+
 .nav-item {
   border-bottom: 2px solid transparent;
 }
