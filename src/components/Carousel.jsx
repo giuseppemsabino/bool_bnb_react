@@ -13,7 +13,7 @@ export default function Carousel({ imagesList }) {
                 key={index}
                 className={`carousel-item ${!index ? "active" : ""}`}
               >
-                <img src={`/${image}`} className="d-block" />
+                <img src={`${image}`} className="d-block" />
               </div>
             );
           })}

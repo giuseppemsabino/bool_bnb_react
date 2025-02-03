@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
-import Button from "../../components/elements/Button";
 import ReviewCard from "../../components/reviews/ReviewCard";
 import ReviewsForm from "../../components/reviews/ReviewsForm";
+import Carousel from "../../components/Carousel";
 
 export default function ShowPropertyPage() {
   const propertyId = useParams().id;
@@ -90,7 +90,9 @@ export default function ShowPropertyPage() {
 
             <div className="row p-2">
               <div className="col-lg-8">
-                <img className="img-fluid" src={property.image} />
+                <Carousel
+                  imagesList={property.images.map((image) => image.img_url)}
+                />
               </div>
               <div className="col-lg-4 d-flex justify-content-around flex-column">
                 <div className="text-center border-bottom">
@@ -190,39 +192,39 @@ export default function ShowPropertyPage() {
         </div>
       )}
       <div
-        class="modal fade"
+        className="modal fade"
         id="deleteProperty"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="deletePropertyLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="deletePropertyLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="deletePropertyLabel">
                 Eliminazione Proprietà
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               La procedura è irreversibile, sei sicuro di voler procedere?
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Annulla
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-bs-dismiss="modal"
                 onClick={() => handleDeleteProperty()}
               >
@@ -233,39 +235,39 @@ export default function ShowPropertyPage() {
         </div>
       </div>
       <div
-        class="modal fade"
+        className="modal fade"
         id="deleteReview"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="deleteReviewLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="deleteReviewLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="deleteReviewLabel">
                 Eliminazione Recensione
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               La procedura è irreversibile, sei sicuro di voler procedere?
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Annulla
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-bs-dismiss="modal"
                 onClick={() => handleDeleteReview}
               >
