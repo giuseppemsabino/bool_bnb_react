@@ -24,10 +24,6 @@ export default function SearchPage() {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
   }
 
-  useEffect(() => {
-    setFilteredProperties(properties);
-  }, []);
-
   function handleSubmit(e) {
     e.preventDefault();
     setFilteredProperties(
