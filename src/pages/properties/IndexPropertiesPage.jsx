@@ -5,6 +5,7 @@ import InputSearchBar from "../../components/InputSearchBar";
 import { useState, useEffect } from "react";
 import PopularDestinationCard from "../../components/elements/PopularDestinationCard";
 import { useNavigate } from "react-router-dom";
+import SecondSectionCard from "../../components/elements/SecondSectionCard";
 
 export default function IndexPropertiesPage() {
   const { properties } = usePropertiesContext();
@@ -18,6 +19,25 @@ export default function IndexPropertiesPage() {
     "jumbo-cover-1.jpg",
     "jumbo-cover-2.jpg",
     "jumbo-cover-3.jpg",
+  ];
+
+  const imageCardSecondSection = [
+    {
+      title: "Zero costi nascosti",
+      description: "Il prezzo che vedi è quello che paghi",
+      img_url: "locker.png",
+    },
+    {
+      title: "Conferma immediata",
+      description:
+        "La prenotazione è instantanea per la maggior parte parte dei soggiorni",
+      img_url: "manwithcat.png",
+    },
+    {
+      title: "Flessibilità",
+      description: "Molte strutture offrono la cancellazione gratuita",
+      img_url: "phone.png",
+    },
   ];
 
   const popularDestinations = [
@@ -70,18 +90,32 @@ export default function IndexPropertiesPage() {
       </div>
 
       <div className="container">
-        <h2 className="first-section-title anton mt-4">LE PIU' APPREZZATE</h2>
-        <div className="row g-3 my-3">
-          {firstFiveProperties &&
-            firstFiveProperties.map((property) => (
-              <Card property={property} key={property.id} />
-            ))}
-        </div>
+        {/* FIRST SECTION */}
+        <section className="first-section">
+          <h2 className="first-section-title anton mt-4">LE PIU' APPREZZATE</h2>
+          <div className="row g-3 my-3">
+            {firstFiveProperties &&
+              firstFiveProperties.map((property) => (
+                <Card property={property} key={property.id} />
+              ))}
+          </div>
+        </section>
 
-        <h2 className="second-section-title anton mt-5">METE PIU' RICHIESTE</h2>
-        <div>
-          <div className="row my-3 g-3 g-md-3 justify-content-between">
-            {console.log(popularDestinations.length)}
+        {/* SECOND SECTION */}
+        <section className="second-section">
+          <div className="row">
+            {imageCardSecondSection.map((card) => {
+              return <SecondSectionCard card={card} />;
+            })}
+          </div>
+        </section>
+
+        {/* THIRD SECTION */}
+        <section className="third-section">
+          <h2 className="third-section-title anton mt-5">
+            METE PIU' RICHIESTE
+          </h2>
+          <div className="row my-3 g-3 g-md-3 justify-content-between mb-5">
             {popularDestinations.map((destination, index) => {
               if (index < 2) {
                 return (
@@ -104,7 +138,7 @@ export default function IndexPropertiesPage() {
               }
             })}
           </div>
-        </div>
+        </section>
       </div>
     </>
   );
