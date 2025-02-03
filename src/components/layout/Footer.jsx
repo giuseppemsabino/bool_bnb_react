@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="text-bg-dark py-3 mt-5">
-      <div className="container-fluid">
+      <div className="container">
         <div className="row row-cols-sm-2 row-cols-md-4 text-center text-sm-start">
           <div className="footer-section">
             <strong>About Us</strong>
             <ul className="list-unstyled d-flex flex-column gap-3 mt-3">
               <li>
-                <Link className="text-decoration-none text-white" to={"/about"}>
-                  Chi siamo?
+                <Link
+                  className="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                  to={"/about"}
+                >
+                  Il nostro team
                 </Link>
               </li>
             </ul>
@@ -18,7 +21,12 @@ export default function Footer() {
           <div className="footer-section">
             <strong>Contatti</strong>
             <ul className="list-unstyled d-flex flex-column gap-3 mt-3">
-              <li>Email: info@azienda.com</li>
+              <li>
+                Email:{" "}
+                <Link className="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                  info@azienda.com
+                </Link>
+              </li>
               <li>Telefono: +39 0123456789</li>
             </ul>
           </div>
