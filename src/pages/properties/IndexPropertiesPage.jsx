@@ -76,11 +76,11 @@ export default function IndexPropertiesPage() {
         <h2 className="second-section-title anton mt-5">METE PIU' RICHIESTE</h2>
         <div>
           <div className="row my-3 g-3 g-md-3 justify-content-between">
-            {console.log(popularDestinations.length)}
             {popularDestinations.map((destination, index) => {
               if (index < 2) {
                 return (
                   <PopularDestinationCard
+                    key={index}
                     onClick={handleClickPopularDestination}
                     index={index}
                     destination={destination}
@@ -90,6 +90,7 @@ export default function IndexPropertiesPage() {
               } else {
                 return (
                   <PopularDestinationCard
+                    key={index}
                     onClick={handleClickPopularDestination}
                     index={index}
                     destination={destination}

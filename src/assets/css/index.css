@@ -248,18 +248,9 @@ input[type="range"]::-webkit-slider-thumb:focus {
 .popular-destination-card-title {
   text-shadow: 1px 1px 20px black;
 }
-/* footer styles */
-
-footer p {
-  font-size: 0.9rem;
-}
-
-footer strong p {
-  font-size: 1rem;
-}
 
 /* about us page */
-.team-card{
+.team-card {
   background-color: transparent;
   box-shadow: none;
   border: none;
@@ -267,10 +258,12 @@ footer strong p {
   margin: 20px 5px;
 }
 
-.team-card img{
+.team-card img {
   width: 100%;
   border-radius: 50%;
   max-height: 300px;
 }
 
-
+main {
+  min-height: 100vh;
+}
