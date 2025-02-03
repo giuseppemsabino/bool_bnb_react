@@ -159,8 +159,8 @@ export default function ShowPropertyPage() {
             <hr />
 
             <div className="my-5 d-flex flex-column gap-5">
-              <div>
-                <span>Posizione del immobile</span>
+              <div className="text-center">
+                <h5 className="fw-semibold">Posizione del immobile</h5>
                 <h4 className="text-decoration-underline">
                   {property.address}
                 </h4>
