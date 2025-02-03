@@ -56,7 +56,7 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         fetchProperties();
-        navigate("/properties");
+        navigate("/");
       })
 
       .catch((error) => {
@@ -241,7 +241,7 @@ export default function ShowPropertyPage() {
                 type="button"
                 className="btn btn-danger"
                 data-bs-dismiss="modal"
-                onClick={() => handleDeleteProperty()}
+                onClick={() => handleDeleteProperty(property.id)}
               >
                 Elimina
               </button>
@@ -284,7 +284,7 @@ export default function ShowPropertyPage() {
                 type="button"
                 className="btn btn-danger"
                 data-bs-dismiss="modal"
-                onClick={() => handleDeleteReview}
+                onClick={() => handleDeleteReview(review.id)}
               >
                 Elimina
               </button>
