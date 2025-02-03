@@ -104,8 +104,8 @@ export default function IndexPropertiesPage() {
         {/* SECOND SECTION */}
         <section className="second-section">
           <div className="row">
-            {imageCardSecondSection.map((card) => {
-              return <SecondSectionCard card={card} />;
+            {imageCardSecondSection.map((card, index) => {
+              return <SecondSectionCard key={index} card={card} />;
             })}
           </div>
         </section>
