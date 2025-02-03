@@ -29,7 +29,7 @@ export default function IndexPropertiesPage() {
   ];
 
   function fetchFirstFiveProperties() {
-    fetch(apiUrl + "/api/properties/first-five")
+    fetch(apiUrl + "/api/properties/first-six")
       .then((res) => res.json())
       .then((data) => {
         setFirstFiveProperties(data.properties);
