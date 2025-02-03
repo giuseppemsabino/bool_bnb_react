@@ -75,6 +75,7 @@ export default function SearchPage() {
   return (
     <>
       <div className="container">
+        <h1 className="mt-5 mb-3">Cerca l'alloggio dei tuoi sogni </h1>
         <div>
           <InputSearchBar
             searchInput={searchInput}
@@ -85,11 +86,24 @@ export default function SearchPage() {
           />
         </div>
 
-        <div className="row mt-5">
-          {filteredProperties.map((property) => {
-            return <Card key={property.id} property={property} />;
-          })}
-        </div>
+        {/* AGGIUNTA DI PLACEHOLDER CHE SCOMPARE ALLA RICERCA */}
+
+        {filteredProperties && filteredProperties.length > 0 ? (
+          <div className="row mt-5">
+            <h3 className="my-3">Ecco i tuoi risultati:</h3>
+            {filteredProperties.map((property) => (
+              <Card key={property.id} property={property} />
+            ))}
+          </div>
+        ) : (
+          <div className="container d-flex justify-content-center align-items-center">
+            <img
+              className="research-placeholder img-fluid mt-5"
+              src={`/advanced-research-placeholder.png`}
+              alt="Nessun risultato"
+            />
+          </div>
+        )}
 
         {/* MODAL */}
         <div className="modal fade " id="exampleModal" tabIndex="-1">

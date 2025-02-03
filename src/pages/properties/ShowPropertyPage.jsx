@@ -64,6 +64,20 @@ export default function ShowPropertyPage() {
       });
   };
 
+  const handleDeleteReview = (id) => {
+    const url = `${apiUrl}/api/properties/reviews/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        fetchProperty(propertyId);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <div className="container">
       {property && (
@@ -151,12 +165,7 @@ export default function ShowPropertyPage() {
                 <h3>RECENSIONI</h3>
                 {reviews.list && reviews.list.length > 0 ? (
                   reviews.list.map((review) => (
-                    <ReviewCard
-                      key={review.id}
-                      review={review}
-                      fetchProperty={fetchProperty}
-                      propertyId={property.id}
-                    />
+                    <ReviewCard key={review.id} review={review} />
                   ))
                 ) : (
                   <p>No reviews</p>
@@ -167,18 +176,105 @@ export default function ShowPropertyPage() {
                 propertyId={property.id}
               />
               <div>
-                <Button
+                <button
                   type="button"
                   className="btn btn-danger"
-                  onClick={() => handleDeleteProperty(property.id)}
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteProperty"
                 >
                   Elimina immobile
-                </Button>
+                </button>
               </div>
             </div>
           </div>
         </div>
       )}
+      <div
+        class="modal fade"
+        id="deleteProperty"
+        tabindex="-1"
+        aria-labelledby="deletePropertyLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deletePropertyLabel">
+                Eliminazione Proprietà
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              La procedura è irreversibile, sei sicuro di voler procedere?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Annulla
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+                onClick={() => handleDeleteProperty()}
+              >
+                Elimina
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="deleteReview"
+        tabindex="-1"
+        aria-labelledby="deleteReviewLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteReviewLabel">
+                Eliminazione Recensione
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              La procedura è irreversibile, sei sicuro di voler procedere?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Annulla
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+                onClick={() => handleDeleteReview}
+              >
+                Elimina
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

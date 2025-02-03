@@ -12,8 +12,8 @@ export default function Card({ property }) {
       </div>
       <Link className="text-decoration-none" to={`/properties/${property.id}`}>
         <div className="card h-100">
-          <div>
-            <img src={property.image} className="img-fluid" />
+          <div className="image-container">
+            <img src={property.images[0].img_url} className="img-fluid" />
           </div>
           <div className="card-body">
             <div className="row ">
@@ -24,10 +24,8 @@ export default function Card({ property }) {
                 <div>
                   <p className="card-text tag-card-font mb-1 mt-3">Type</p>
                   <p className="tag-card-font text-dark fw-semibold ">
+                    <i className={`fa-solid ${property.type_icon} mx-1`}></i>
                     {property.type_name}
-                    <i
-                      className={`fa-solid ${property.type_icon} fa-solid`}
-                    ></i>
                   </p>
                 </div>
                 <div>
@@ -49,7 +47,7 @@ export default function Card({ property }) {
                   <i className="fa-solid fa-ruler-combined mx-1"></i>
                   {property.square_meters}
                 </span>
-                <p>{property.address}</p>
+                <p className="address-span">{property.address}</p>
               </div>
             </div>
           </div>
