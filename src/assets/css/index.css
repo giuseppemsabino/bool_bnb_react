@@ -30,11 +30,6 @@ body {
   border-bottom: 2px solid transparent;
 }
 
-.navbar {
-  padding: 0 !important;
-  padding-top: 10px !important;
-}
-
 .tag-card-font {
   font-size: 0.7rem;
   color: grey;
