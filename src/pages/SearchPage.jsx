@@ -89,7 +89,7 @@ export default function SearchPage() {
         {/* AGGIUNTA DI PLACEHOLDER CHE SCOMPARE ALLA RICERCA */}
 
         {filteredProperties && filteredProperties.length > 0 ? (
-          <div className="row mt-5">
+          <div className="row mt-5 g-3">
             <h3 className="my-3">Ecco i tuoi risultati:</h3>
             {filteredProperties.map((property) => (
               <Card key={property.id} property={property} />
