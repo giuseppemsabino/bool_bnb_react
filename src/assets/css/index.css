@@ -272,4 +272,43 @@ input[type="range"]::-webkit-slider-thumb:focus {
 
 main {
   min-height: 100vh;
+  /* index sections */
+}
+.second-section {
+  background-image: url(/img/secondSection/worldmap.png);
+  margin: 50px 0px;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card.card-second-section {
+  box-shadow: none !important;
+  border: 1px solid rgb(226, 226, 226) !important;
+}
+
+.card.card-second-section:hover {
+  cursor: auto !important;
+  border: 1px solid rgb(226, 226, 226) !important;
+  box-shadow: none !important;
+  opacity: 1;
+}
+
+.third-section {
+  margin-top: 100px !important;
+  margin-bottom: 150px !important;
+}
+
+.w-md-100 {
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .w-md-100 {
+    width: 100%;
+  }
 }

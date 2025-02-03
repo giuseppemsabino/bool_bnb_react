@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePropertiesContext } from "../contexts/PropertiesContext";
 import Card from "../components/elements/Card";
 import PropertiesTypeInputGroup from "../components/elements/PropertiesTypeInputGroup";
@@ -8,6 +8,7 @@ import InputSearchBar from "../components/InputSearchBar";
 export default function SearchPage() {
   const { properties, types, filteredProperties, setFilteredProperties } =
     usePropertiesContext();
+
   const defaultSearchInput = {
     text: "",
     rooms: 0,
@@ -22,6 +23,10 @@ export default function SearchPage() {
   function handleChangeFilters(e) {
     setSearchInput({ ...searchInput, [e.target.name]: e.target.value });
   }
+
+  useEffect(() => {
+    setFilteredProperties(properties);
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
