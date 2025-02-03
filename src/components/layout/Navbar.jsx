@@ -63,19 +63,21 @@ export default function Navbar() {
                 </NavLink>
               </li>
             </ul>
-            <div className={`d-flex align-items-center `}>
+            <div className={`d-flex align-items-center flex-column flex-sm-row`}>
               <div
                 className={`insert-item me-4 insert nav-item ${insertNavItem}`}
               >
-                <NavLink
+                
+              </div>
+            
+              <NavLink
                   className={`text-decoration-none text-dark nav-link active fs-6`}
                   onClick={() => handleSelectedNavItem("insert")}
                   to="/properties/insert"
                 >
                   Inserisci immobili
                 </NavLink>
-              </div>
-              <Button className="btn login-text" onClick={() => alert("test")}>
+                  <Button className="btn login-text" onClick={() => alert("test")}>
                 <i className="fa-solid fa-circle-user"></i>
                 <span className="fw-semibold "> Login </span>
               </Button>
