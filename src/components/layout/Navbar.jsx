@@ -18,7 +18,7 @@ export default function Navbar() {
   // TODO: sistemare setHomeNavItem, selezionamento elementi navbar
 
   return (
-    <nav className="navbar navbar-expand-md bg-body-tertiary">
+    <nav className="navbar navbar-expand-md bg-body-tertiary ">
       <div className="container-fluid">
         <Link
           className="navbar-brand fs-5"
@@ -36,7 +36,7 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <div className="d-flex justify-content-between w-100">
+          <div className="d-flex justify-content-between w-100 py-2">
             <ul className="navbar-nav g-5">
               <li
                 className={`nav-item ${listingsNavItem}`}
