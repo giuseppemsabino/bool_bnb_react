@@ -191,6 +191,7 @@ export default function ShowPropertyPage() {
                   propertyId={property.id}
                 />
               </div>
+              <hr />
               <div className="my-4 text-center">
                 <button
                   type="button"

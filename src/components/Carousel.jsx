@@ -16,7 +16,10 @@ export default function Carousel({ imagesList, page }) {
                 {page === "home" ? (
                   <img src={`/img/carousel/${image}`} className="d-block" />
                 ) : (
-                  <img src={`${image}`} className="d-block w-100" />
+                  <img
+                    src={`${image ? image : "placeholder.png"}`}
+                    className="d-block w-100"
+                  />
                 )}
               </div>
             );
