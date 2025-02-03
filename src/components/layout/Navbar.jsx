@@ -1,28 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import Button from "../elements/Button";
-import { useState } from "react";
+import { usePropertiesContext } from "../../contexts/PropertiesContext";
+
 export default function Navbar() {
-  const [homeNavItem, setHomeNavItem] = useState("");
-  const [listingsNavItem, setListingsNavItem] = useState("");
-  const [insertNavItem, setInsertNavItem] = useState("");
-
-  function handleSelectedNavItem(selectedNavItem) {
-    if (selectedNavItem === "home") {
-      setHomeNavItem("selected");
-      setListingsNavItem("");
-      setInsertNavItem("");
-    } else if (selectedNavItem === "listings") {
-      setHomeNavItem("");
-      setListingsNavItem("selected");
-      setInsertNavItem("");
-    } else if (selectedNavItem === "insert") {
-      setHomeNavItem("");
-      setListingsNavItem("");
-      setInsertNavItem("selected");
-    }
-  }
-
-  // TODO: sistemare setHomeNavItem, selezionamento elementi navbar
+  const { selectedItem, setSelectedItem } = usePropertiesContext();
+  console.log(selectedItem);
 
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
@@ -30,7 +12,7 @@ export default function Navbar() {
         <Link
           className="navbar-brand fs-5"
           to="/"
-          onClick={() => handleSelectedNavItem("listings")}
+          onClick={() => setSelectedItem("home")}
         >
           BoolB&B
         </Link>
@@ -46,8 +28,8 @@ export default function Navbar() {
           <div className="d-flex justify-content-between w-100">
             <ul className="navbar-nav g-5">
               <li
-                className={`nav-item ${listingsNavItem}`}
-                onClick={() => handleSelectedNavItem("listings")}
+                className={`nav-item ${selectedItem == "home" && "selected"}`}
+                onClick={() => setSelectedItem("home")}
               >
                 <NavLink className="nav-link active fs-6" to="/">
                   Home
@@ -55,29 +37,32 @@ export default function Navbar() {
               </li>
 
               <li
-                className={`nav-item ${homeNavItem}`}
-                onClick={() => handleSelectedNavItem("home")}
+                className={`nav-item ${selectedItem == "search" && "selected"}`}
+                onClick={() => setSelectedItem("search")}
               >
                 <NavLink className="nav-link active fs-6" to="/properties">
                   Ricerca avanzata
                 </NavLink>
               </li>
             </ul>
-            <div className={`d-flex align-items-center flex-column flex-sm-row`}>
+            <div
+              className={`d-flex align-items-center flex-column flex-sm-row`}
+            >
               <div
-                className={`insert-item me-4 insert nav-item ${insertNavItem}`}
+                className={`insert-item me-4 insert nav-item ${
+                  selectedItem == "insert" && "selected"
+                }`}
               >
-                
-              </div>
-            
-              <NavLink
-                  className={`text-decoration-none text-dark nav-link active fs-6`}
-                  onClick={() => handleSelectedNavItem("insert")}
+                <NavLink
+                  className={`text-decoration-none text-dark nav-link active fs-6 my-1`}
+                  onClick={() => setSelectedItem("insert")}
                   to="/properties/insert"
                 >
                   Inserisci immobili
                 </NavLink>
-                  <Button className="btn login-text" onClick={() => alert("test")}>
+              </div>
+
+              <Button className="btn login-text" onClick={() => alert("test")}>
                 <i className="fa-solid fa-circle-user"></i>
                 <span className="fw-semibold "> Login </span>
               </Button>

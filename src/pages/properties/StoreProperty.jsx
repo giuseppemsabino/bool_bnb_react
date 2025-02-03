@@ -21,7 +21,7 @@ export default function StoreProperty() {
     square_meters: 0,
   };
 
-  const { fetchProperties } = usePropertiesContext();
+  const { fetchProperties, setSelectedItem } = usePropertiesContext();
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState(defaultFormData);
@@ -41,6 +41,7 @@ export default function StoreProperty() {
       .then((data) => {
         alert(data.message);
         fetchProperties();
+        setSelectedItem("home");
         navigate("/");
       });
   }

@@ -11,6 +11,7 @@ export default function PropertiesContextProvider({ children }) {
   const [properties, setProperties] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [types, setTypes] = useState([]);
+  const [selectedItem, setSelectedItem] = useState("home");
 
   useEffect(() => {
     fetchProperties();
@@ -42,6 +43,8 @@ export default function PropertiesContextProvider({ children }) {
         setProperties,
         filteredProperties,
         setFilteredProperties,
+        selectedItem,
+        setSelectedItem,
       }}
     >
       {children}
