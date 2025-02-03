@@ -79,13 +79,13 @@ export default function ShowPropertyPage() {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid px-4">
       {property && (
         <div>
           <h3 className="my-3">DETTAGLIO IMMOBILE</h3>
           <div>
             <div className="my-3">
-              <h1 className="fw-bold text-center text-decoration-underline">
+              <h1 className="fw-bold text-decoration-underline">
                 {property.title}
               </h1>
             </div>
@@ -94,6 +94,7 @@ export default function ShowPropertyPage() {
               <div className="col-lg-8">
                 <Carousel
                   imagesList={property.images.map((image) => image.img_url)}
+                  page="show"
                 />
               </div>
               <div className="col-lg-4 d-flex justify-content-around flex-column">
@@ -157,9 +158,13 @@ export default function ShowPropertyPage() {
 
             <hr />
 
-            <div className="map-location">
-              <h3>Posizione del immobile</h3>
-              <h4 className="text-decoration-underline">{property.address}</h4>
+            <div className="my-5 d-flex flex-column gap-5">
+              <div>
+                <span>Posizione del immobile</span>
+                <h4 className="text-decoration-underline">
+                  {property.address}
+                </h4>
+              </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149284.69820229863!2d8.980461539844416!3d45.953023351296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47843d32820b62f7%3A0x3e40c4eae898e1e0!2sLago%20di%20Garda!5e0!3m2!1sit!2sit!4v1738079658449!5m2!1sit!2sit"
                 height="450"
@@ -170,8 +175,8 @@ export default function ShowPropertyPage() {
             <hr />
 
             <div className="d-flex flex-column my-4" id="reviewsSection">
+              <h3>RECENSIONI</h3>
               <div className="row g-2 my-4">
-                <h3>RECENSIONI</h3>
                 {reviews.list && reviews.list.length > 0 ? (
                   reviews.list.map((review) => (
                     <ReviewCard key={review.id} review={review} />
