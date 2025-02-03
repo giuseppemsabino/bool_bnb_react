@@ -79,13 +79,15 @@ export default function ShowPropertyPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       {property && (
         <div>
-          <h3 className="mt-3">DETTAGLIO IMMOBILE</h3>
+          <h3 className="my-3">DETTAGLIO IMMOBILE</h3>
           <div>
             <div className="my-3">
-              <h1 className="fw-bold">{property.title}</h1>
+              <h1 className="fw-bold text-center text-decoration-underline">
+                {property.title}
+              </h1>
             </div>
 
             <div className="row p-2">
@@ -95,18 +97,23 @@ export default function ShowPropertyPage() {
                 />
               </div>
               <div className="col-lg-4 d-flex justify-content-around flex-column">
-                <div className="text-center border-bottom">
+                <div className="text-center border-bottom mt-3">
                   <span className="fw-semibold">Proprietario</span>
                   <h2 className="fw-bold">
                     {property.host_name} {property.host_surname}
                   </h2>
                 </div>
-                <div className="text-center mt-2">
-                  <span className="fw-semibold">Descrizione</span>
-                  <p className="fs-5 fw-medium">{property.description}</p>
-                  <span className="text-decoration-underline">
-                    {property.email}
-                  </span>
+                <div className="d-flex flex-column gap-3 text-center">
+                  <div className="border-bottom">
+                    <span className="fw-semibold">Descrizione</span>
+                    <p className="fs-5 fw-medium">{property.description}</p>
+                  </div>
+                  <div>
+                    <span className="fw-semibold">Contatti</span>
+                    <p className="text-decoration-underline">
+                      {property.email}
+                    </p>
+                  </div>
                 </div>
                 <div className="p-2 d-flex flex-column align-items-center justify-content-center">
                   <div>
@@ -173,11 +180,13 @@ export default function ShowPropertyPage() {
                   <p>No reviews</p>
                 )}
               </div>
-              <ReviewsForm
-                fetchProperty={fetchProperty}
-                propertyId={property.id}
-              />
-              <div>
+              <div className="px-4">
+                <ReviewsForm
+                  fetchProperty={fetchProperty}
+                  propertyId={property.id}
+                />
+              </div>
+              <div className="my-4 text-center">
                 <button
                   type="button"
                   className="btn btn-danger"
