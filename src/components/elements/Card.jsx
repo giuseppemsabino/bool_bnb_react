@@ -22,19 +22,22 @@ export default function Card({ property }) {
               className="img-fluid"
             />
           </div>
+
           <div className="card-body">
-            <div className="row ">
-              <div className="col-8">
+            <div className="row h-100">
+              <div className="col-8 h-100 d-flex flex-column justify-content-between">
                 <h5 className="card-title">
                   {property.title}-<span>No.{property.id}</span>
                 </h5>
+
                 <div>
-                  <p className="card-text tag-card-font mb-1 mt-3">Type</p>
-                  <p className="tag-card-font text-dark fw-semibold ">
+                  <p className="card-text tag-card-font">Tipologia</p>
+                  <p className="tag-card-font text-dark fw-semibold">
                     <i className={`fa-solid ${property.type_icon} mx-1`}></i>
                     {property.type_name}
                   </p>
                 </div>
+
                 <div>
                   <span className="badge text-bg-success mx-1">
                     <i className="fa-solid fa-bed mx-1"></i> {property.n_beds}
@@ -49,7 +52,7 @@ export default function Card({ property }) {
                   </span>
                 </div>
               </div>
-              <div className="col-4 text-end">
+              <div className="col-4 h-100 text-end">
                 <span className="card-title tag-card-font">
                   <i className="fa-solid fa-ruler-combined mx-1"></i>
                   {property.square_meters}

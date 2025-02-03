@@ -11,6 +11,15 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.card:hover {
+  border: 1px solid #6917b0;
+  opacity: 0.8;
+}
+
+.card-body {
+  height: 200px;
+}
+
 .btn-purple {
   background-color: #8338ec;
   color: white;
@@ -38,11 +47,6 @@ body {
 .tag-card-font {
   font-size: 0.7rem;
   color: grey;
-}
-
-/* card shadow */
-.card {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* COLLAGE IMAGES SHOW */
@@ -259,7 +263,7 @@ footer strong p {
 }
 
 /* about us page */
-.team-card{
+.team-card {
   background-color: transparent;
   box-shadow: none;
   border: none;
@@ -267,10 +271,8 @@ footer strong p {
   margin: 20px 5px;
 }
 
-.team-card img{
+.team-card img {
   width: 100%;
   border-radius: 50%;
   max-height: 300px;
 }
-
-
