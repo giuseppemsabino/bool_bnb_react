@@ -1,4 +1,4 @@
-export default function Carousel({ imagesList }) {
+export default function Carousel({ imagesList, page }) {
   return (
     <div>
       <div
