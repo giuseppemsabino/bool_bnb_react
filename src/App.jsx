@@ -6,6 +6,7 @@ import PropertiesContextProvider from "./contexts/PropertiesContext";
 import IndexPropertiesPage from "./pages/properties/IndexPropertiesPage";
 import ShowPropertyPage from "./pages/properties/ShowPropertyPage";
 import StoreProperty from "./pages/properties/StoreProperty";
+import AboutUsPage from "./pages/AboutUsPage";
 function App() {
   return (
     <PropertiesContextProvider>
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<IndexPropertiesPage />} />
+              <Route path="about" element={<AboutUsPage />}/>
             <Route path="properties">
               <Route index element={<SearchPage />} />
               <Route path=":id" element={<ShowPropertyPage />} />
