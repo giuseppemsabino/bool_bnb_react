@@ -1,4 +1,4 @@
-export default function Carousel({ imagesList }) {
+export default function Carousel({ imagesList, page }) {
   return (
     <div>
       <div
@@ -13,7 +13,14 @@ export default function Carousel({ imagesList }) {
                 key={index}
                 className={`carousel-item ${!index ? "active" : ""}`}
               >
-                <img src={`/${image}`} className="d-block" />
+                {page === "home" ? (
+                  <img
+                    src={`/img/carousel/${image}`}
+                    className="d-block w-100"
+                  />
+                ) : (
+                  <img src={`${image}`} className="d-block" />
+                )}
               </div>
             );
           })}
