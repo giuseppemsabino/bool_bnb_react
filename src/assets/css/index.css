@@ -320,8 +320,8 @@ main {
   }
 }
 
-@media screen and (min-width: 768px) {
-  .w-md-100 {
-    width: 100%;
+@media screen and (max-width: 576px) {
+  .form-control.form-control-lg {
+    font-size: 1rem !important;
   }
 }
