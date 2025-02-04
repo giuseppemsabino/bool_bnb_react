@@ -26,9 +26,8 @@ export default function Card({ property }) {
           <div className="card-body">
             <div className="row h-100">
               <div className="col-8 h-100 d-flex flex-column justify-content-between">
-                <h5 className="card-title">
-                  {property.title}-<span>No.{property.id}</span>
-                </h5>
+                <h5 className="card-title">{property.title}</h5>
+                <h6>No. {property.id}</h6>
 
                 <div>
                   <p className="card-text tag-card-font">Tipologia</p>
