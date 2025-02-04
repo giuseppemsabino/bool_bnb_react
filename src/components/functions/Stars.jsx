@@ -4,7 +4,7 @@ export default function Stars({ rating }) {
   return (
     <>
       {starsArray.map((star, index) => (
-        <span key={index} className="h3">
+        <span key={index} className="h5">
           <i
             className={
               index < rating ? "fa-solid fa-star" : "fa-regular fa-star"
