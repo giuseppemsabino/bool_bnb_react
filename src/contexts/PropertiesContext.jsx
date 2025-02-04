@@ -7,11 +7,20 @@ const PropertiesContext = createContext();
 
 export default function PropertiesContextProvider({ children }) {
   const apiUrl = import.meta.env.VITE_API_URL;
+  const defaultSearchInput = {
+    text: "",
+    rooms: 0,
+    beds: 0,
+    bathrooms: 0,
+    squareMeters: 0,
+    type_name: "",
+  };
 
   const [properties, setProperties] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [types, setTypes] = useState([]);
   const [selectedItem, setSelectedItem] = useState("");
+  const [searchInput, setSearchInput] = useState(defaultSearchInput);
 
   useEffect(() => {
     fetchProperties();
@@ -45,6 +54,9 @@ export default function PropertiesContextProvider({ children }) {
         setFilteredProperties,
         selectedItem,
         setSelectedItem,
+        searchInput,
+        setSearchInput,
+        defaultSearchInput,
       }}
     >
       {children}

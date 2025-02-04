@@ -9,7 +9,12 @@ import SecondSectionCard from "../../components/elements/SecondSectionCard";
 
 export default function IndexPropertiesPage() {
   const { properties } = usePropertiesContext();
-  const { setFilteredProperties, setSelectedItem } = usePropertiesContext();
+  const {
+    setFilteredProperties,
+    setSelectedItem,
+    setSearchInput,
+    searchInput,
+  } = usePropertiesContext();
   const navigate = useNavigate();
 
   const [firstFiveProperties, setFirstFiveProperties] = useState();
@@ -58,6 +63,8 @@ export default function IndexPropertiesPage() {
 
   useEffect(() => {
     fetchFirstFiveProperties();
+    const newSearchInput = searchInput;
+    setSearchInput({ ...newSearchInput, text: "" });
   }, []);
 
   function handleClickPopularDestination(destination) {
@@ -86,6 +93,8 @@ export default function IndexPropertiesPage() {
           properties={properties}
           searchpage={false}
           setSelectedItem={setSelectedItem}
+          setSearchInput={setSearchInput}
+          searchInput={searchInput}
         />
       </div>
 
