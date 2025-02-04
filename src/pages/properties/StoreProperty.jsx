@@ -84,10 +84,13 @@ export default function StoreProperty() {
                 </div>
 
                 <div className="input-group mb-3">
+                  <label className="input-group-text" htmlFor="#square_meters">
+                    Inserisci metratura
+                  </label>
                   <input
+                    id="square_meters"
                     type="number"
                     className="form-control"
-                    placeholder="Inserisci metratura"
                     name="square_meters"
                     value={formData.square_meters}
                     onChange={handleInputFormData}

@@ -66,7 +66,7 @@ export default function ShowPropertyPage() {
   };
 
   return (
-    <div className="container-fluid px-4">
+    <div className="container-fluid">
       {property && (
         <div>
           <h3 className="my-3">DETTAGLIO IMMOBILE</h3>
@@ -100,7 +100,7 @@ export default function ShowPropertyPage() {
                     <span className="fw-semibold">Contatti</span>
                     <p
                       id="openContactHost"
-                      className="text-decoration-underline"
+                      className="text-decoration-underline fs-3"
                       data-bs-toggle="modal"
                       data-bs-target="#contactHost"
                     >
