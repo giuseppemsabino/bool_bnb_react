@@ -30,7 +30,6 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert(data.message);
         setFormData(defaultFormData);
         fetchProperty(propertyId);
       });
@@ -43,7 +42,12 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           <h3 className="d-inline">SCRIVI LA TUA RECENSIONE</h3>
         </div>
         <div className="col-2 text-end">
-          <button className="btn btn-success ms-auto" type="submit">
+          <button
+            className="btn btn-success ms-auto"
+            type="button"
+            data-bs-target="#createReview"
+            data-bs-toggle="modal"
+          >
             INVIA
           </button>
         </div>
@@ -139,6 +143,33 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
             rows="3"
             required
           ></textarea>
+        </div>
+      </div>
+      <div className="modal" tabIndex="-1" id="createReview">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Modal title</h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="submit"
+                className="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </form>

@@ -39,7 +39,6 @@ export default function StoreProperty() {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert(data.message);
         fetchProperties();
         setSelectedItem("home");
         navigate("/");
@@ -192,9 +191,41 @@ export default function StoreProperty() {
                 ></textarea>
               </div>
               <div className="text-end   mt-3">
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#createProperty"
+                >
                   Inserisci
                 </button>
+              </div>
+              <div className="modal" tabIndex="-1" id="createProperty">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title">Modal title</h5>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div className="modal-body">
+                      <p>Modal body text goes here.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button
+                        type="submit"
+                        className="btn btn-success"
+                        data-bs-dismiss="modal"
+                      >
+                        Ok
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
           </div>

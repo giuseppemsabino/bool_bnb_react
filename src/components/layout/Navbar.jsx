@@ -61,7 +61,7 @@ export default function Navbar() {
                 </NavLink>
               </div>
 
-              <Button className="btn login-text" onClick={() => alert("test")}>
+              <Button className="btn login-text">
                 <i className="fa-solid fa-circle-user"></i>
                 <span className="fw-semibold "> Login </span>
               </Button>

@@ -123,19 +123,19 @@ export default function ShowPropertyPage() {
                 </div>
 
                 <div className="text-center p-2 d-flex justify-content-center flex-wrap gap-3">
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className={`fa-solid ${property.type_icon} mx-1`}></i>
                     {property.type_name}
                   </span>
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className="fa-solid fa-bed mx-1"></i>
                     {property.n_beds} Letti
                   </span>
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className="fa-solid fa-house mx-1"></i>
                     {property.n_rooms} Camere
                   </span>
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className="fa-solid fa-sink mx-1"></i>
                     {property.n_bathrooms} Bagni
                   </span>
