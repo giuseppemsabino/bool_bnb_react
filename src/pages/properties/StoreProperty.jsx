@@ -85,17 +85,6 @@ export default function StoreProperty() {
 
                 <div className="input-group mb-3">
                   <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Inserisci immagine"
-                    name="image"
-                    value={formData.image}
-                    onChange={handleInputFormData}
-                  />
-                </div>
-
-                <div className="input-group mb-3">
-                  <input
                     type="number"
                     className="form-control"
                     placeholder="Inserisci metratura"
