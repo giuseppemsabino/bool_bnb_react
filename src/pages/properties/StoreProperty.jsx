@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
 import Counter from "../../components/functions/Counter";
 import PropertiesTypeInputGroup from "../../components/elements/PropertiesTypeInputGroup";
+import StoreModal from "../../components/elements/StoreModal";
 
 export default function StoreProperty() {
   // declarations
@@ -200,33 +201,10 @@ export default function StoreProperty() {
                   Inserisci
                 </button>
               </div>
-              <div className="modal" tabIndex="-1" id="createProperty">
-                <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title">Modal title</h5>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body">
-                      <p>Modal body text goes here.</p>
-                    </div>
-                    <div className="modal-footer">
-                      <button
-                        type="submit"
-                        className="btn btn-success"
-                        data-bs-dismiss="modal"
-                      >
-                        Ok
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <StoreModal
+                id="createProperty"
+                body="Proprietà aggiunta con successo"
+              />
             </form>
           </div>
         </div>

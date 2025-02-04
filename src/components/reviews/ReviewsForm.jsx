@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StoreModal from "../elements/StoreModal";
 
 export default function ReviewsForm({ propertyId, fetchProperty }) {
   const defaultFormData = {
@@ -145,33 +146,7 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           ></textarea>
         </div>
       </div>
-      <div className="modal" tabIndex="-1" id="createReview">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Modal title</h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="submit"
-                className="btn btn-success"
-                data-bs-dismiss="modal"
-              >
-                Ok
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <StoreModal id="createReview" body="Recensione aggiunta con successo" />
     </form>
   );
 }
