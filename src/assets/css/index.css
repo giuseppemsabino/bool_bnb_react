@@ -260,14 +260,17 @@ input[type="range"]::-webkit-slider-thumb:focus {
   background-color: transparent;
   box-shadow: none;
   border: none;
-  padding: 10px;
-  margin: 20px 5px;
 }
 
 .team-card img {
   width: 100%;
   border-radius: 50%;
   max-height: 300px;
+  aspect-ratio: 1;
+}
+
+.team-card .card-body {
+  height: 50px;
 }
 
 main {
@@ -317,8 +320,8 @@ main {
   }
 }
 
-@media screen and (max-width: 576px) {
-  .form-control.form-control-lg {
-    font-size: 1rem !important;
+@media screen and (min-width: 768px) {
+  .w-md-100 {
+    width: 100%;
   }
 }
