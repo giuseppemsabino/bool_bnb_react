@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { usePropertiesContext } from "../contexts/PropertiesContext";
 
@@ -6,14 +5,11 @@ export default function InputSearchBar({
   properties,
   searchpage,
   setSelectedItem,
+  setSearchInput,
+  searchInput,
 }) {
   const { setFilteredProperties } = usePropertiesContext();
 
-  const defaultSearchInput = {
-    text: "",
-  };
-
-  const [searchInput, setSearchInput] = useState(defaultSearchInput);
   const navigate = useNavigate();
 
   function handleChangeInput(e) {
@@ -34,7 +30,6 @@ export default function InputSearchBar({
         );
       })
     );
-    setSearchInput({ ...searchInput, text: "" });
     setSelectedItem("search");
   }
 
