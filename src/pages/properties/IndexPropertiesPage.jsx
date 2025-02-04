@@ -104,8 +104,8 @@ export default function IndexPropertiesPage() {
         {/* SECOND SECTION */}
         <section className="second-section">
           <div className="row">
-            {imageCardSecondSection.map((card) => {
-              return <SecondSectionCard card={card} />;
+            {imageCardSecondSection.map((card, index) => {
+              return <SecondSectionCard key={index} card={card} />;
             })}
           </div>
         </section>
@@ -120,6 +120,7 @@ export default function IndexPropertiesPage() {
               if (index < 2) {
                 return (
                   <PopularDestinationCard
+                    key={index}
                     onClick={handleClickPopularDestination}
                     index={index}
                     destination={destination}
@@ -129,6 +130,7 @@ export default function IndexPropertiesPage() {
               } else {
                 return (
                   <PopularDestinationCard
+                    key={index}
                     onClick={handleClickPopularDestination}
                     index={index}
                     destination={destination}

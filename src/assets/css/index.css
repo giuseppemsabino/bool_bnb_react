@@ -254,15 +254,6 @@ input[type="range"]::-webkit-slider-thumb:focus {
 .popular-destination-card-title {
   text-shadow: 1px 1px 20px black;
 }
-/* footer styles */
-
-footer p {
-  font-size: 0.9rem;
-}
-
-footer strong p {
-  font-size: 1rem;
-}
 
 /* about us page */
 .team-card {
@@ -279,8 +270,10 @@ footer strong p {
   max-height: 300px;
 }
 
-/* index sections */
-
+main {
+  min-height: 100vh;
+  /* index sections */
+}
 .second-section {
   background-image: url(/img/secondSection/worldmap.png);
   margin: 50px 0px;

@@ -2,52 +2,57 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white py-4 mt-4">
+    <footer className="text-bg-dark py-3 mt-5">
       <div className="container">
-        <div className="row ">
-          <div className="col-md-3 footer-section">
-            <strong>
-              <p>About Us</p>
-            </strong>
-            <Link to={"/about"}>Chi siamo?</Link>
+        <div className="row row-cols-sm-2 row-cols-md-4 text-center text-sm-start">
+          <div className="footer-section">
+            <strong>About Us</strong>
+            <ul className="list-unstyled d-flex flex-column gap-3 mt-3">
+              <li>
+                <Link
+                  className="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                  to={"/about"}
+                >
+                  Il nostro team
+                </Link>
+              </li>
+            </ul>
           </div>
-          <div className="col-md-3 footer-section">
-            <strong>
-              <p>Contatti</p>
-            </strong>
-            <p>
-              Email: <br />
-              info@azienda.com
-            </p>
-            <p>
-              Telefono: <br />
-              +39 123 456 789
-            </p>
+          <div className="footer-section">
+            <strong>Contatti</strong>
+            <ul className="list-unstyled d-flex flex-column gap-3 mt-3">
+              <li>
+                Email:{" "}
+                <Link className="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                  info@azienda.com
+                </Link>
+              </li>
+              <li>Telefono: +39 0123456789</li>
+            </ul>
           </div>
-          <div className="col-md-3 footer-section">
-            <strong>
-              <p>Privacy, Termini e Condizioni</p>
-            </strong>
-            <p>Informazione sulla privacy e cookies</p>
-            <p>Qua trovi i termini e condizioni</p>
+          <div className="footer-section">
+            <strong>Privacy</strong>
+            <ul className="list-unstyled d-flex flex-column gap-3 mt-3">
+              <li>Informazione sulla privacy</li>
+              <li>Cookies</li>
+              <li>Termini e condizioni</li>
+            </ul>
           </div>
-          <div className="col-md-3 footer-section">
-            <strong>
-              <p>Dati della Azienda</p>
-            </strong>
-            <p>BoolB&B S.p.A.</p>
-            <p>Sede: Via Roma 1, 00100 Roma</p>
-            <p>
-              P.IVA: <br /> 12345678901
-            </p>
+          <div className="footer-section">
+            <strong>Dati Azienda</strong>
+            <ul className="list-unstyled d-flex flex-column gap-3 mt-3">
+              <li>BoolB&B S.p.A.</li>
+              <li>Via Roma 1, 00100 Roma</li>
+              <li>P.IVA: 12345678901</li>
+            </ul>
           </div>
         </div>
 
-        <div className="text-center mt-4">
-          <p>
+        <div className="mt-4 text-center">
+          <span>
             &copy; {new Date().getFullYear()} BoolB&B S.p.A. Tutti i diritti
             riservati.
-          </p>
+          </span>
           <p>
             Bool BnB è parte di Bool Holdings Inc., leader mondiale nel settore
             dei viaggi online e relativi servizi.

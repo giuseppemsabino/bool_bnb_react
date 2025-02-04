@@ -4,7 +4,6 @@ import { usePropertiesContext } from "../../contexts/PropertiesContext";
 
 export default function Navbar() {
   const { selectedItem, setSelectedItem } = usePropertiesContext();
-  console.log(selectedItem);
 
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
