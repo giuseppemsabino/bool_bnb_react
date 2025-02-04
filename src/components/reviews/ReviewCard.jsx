@@ -41,8 +41,8 @@ export default function ReviewCard({ review, fetchProperty, propertyId }) {
               </div>
 
               <div className="d-flex align-items-center px-1">
-                <i className="fa-solid fa-circle"></i> Soggiorno di:{" "}
-                {review.stay_days} giorni
+                <i className="fa-solid fa-circle mx-1"></i>
+                <span>{review.stay_days} giorni</span>
               </div>
             </div>
           </div>
