@@ -42,7 +42,6 @@ export default function StoreProperty() {
       .then((data) => {
         fetchProperties();
         setSelectedItem("home");
-        navigate("/");
       });
   }
 
@@ -69,6 +68,7 @@ export default function StoreProperty() {
                     name="title"
                     value={formData.title}
                     onChange={handleInputFormData}
+                    required
                   />
                 </div>
 
@@ -80,6 +80,7 @@ export default function StoreProperty() {
                     name="address"
                     value={formData.address}
                     onChange={handleInputFormData}
+                    required
                   />
                 </div>
 
@@ -94,6 +95,7 @@ export default function StoreProperty() {
                     name="square_meters"
                     value={formData.square_meters}
                     onChange={handleInputFormData}
+                    required
                   />
                 </div>
 
@@ -143,6 +145,7 @@ export default function StoreProperty() {
                         name="host_name"
                         value={formData.host_name}
                         onChange={handleInputFormData}
+                        required
                       />
                     </div>
                   </div>
@@ -155,6 +158,7 @@ export default function StoreProperty() {
                         name="host_surname"
                         value={formData.host_surname}
                         onChange={handleInputFormData}
+                        required
                       />
                     </div>
                   </div>
@@ -168,6 +172,7 @@ export default function StoreProperty() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputFormData}
+                    required
                   />
                 </div>
               </div>
@@ -183,8 +188,8 @@ export default function StoreProperty() {
               </div>
               <div className="text-end   mt-3">
                 <button
-                  type="button"
-                  className="btn btn-primary"
+                  type="submit"
+                  className="btn btn-success"
                   data-bs-toggle="modal"
                   data-bs-target="#createProperty"
                 >

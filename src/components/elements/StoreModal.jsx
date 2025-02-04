@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function StoreModal({ id, body }) {
+  const navigate = useNavigate();
   return (
     <div className="modal" tabIndex="-1" id={id}>
       <div className="modal-dialog modal-dialog-centered">
@@ -16,9 +19,10 @@ export default function StoreModal({ id, body }) {
           </div>
           <div className="modal-footer">
             <button
-              type="submit"
+              type="button"
               className="btn btn-success"
               data-bs-dismiss="modal"
+              onClick={() => navigate("/")}
             >
               Ok
             </button>
