@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StoreModal from "../elements/StoreModal";
 
 export default function ReviewsForm({ propertyId, fetchProperty }) {
   const defaultFormData = {
@@ -30,7 +31,6 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert(data.message);
         setFormData(defaultFormData);
         fetchProperty(propertyId);
       });
@@ -43,7 +43,12 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           <h3 className="d-inline">SCRIVI LA TUA RECENSIONE</h3>
         </div>
         <div className="col-2 text-end">
-          <button className="btn btn-success ms-auto" type="submit">
+          <button
+            className="btn btn-success ms-auto"
+            type="button"
+            data-bs-target="#createReview"
+            data-bs-toggle="modal"
+          >
             INVIA
           </button>
         </div>
@@ -82,16 +87,20 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           <label className="form-label" htmlFor="ratingInput">
             Voto
           </label>
-          <input
+          <select
             name="rating"
             value={formData.rating}
             onChange={handleFormData}
-            type="number"
-            className="form-control"
-            placeholder="Inserisci un voto da 1 a 5"
+            className="form-select"
             id="ratingInput"
             required
-          />
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </div>
         <div className="col-sm-6 col-lg-4">
           <label className="form-label" htmlFor="daysInput">
@@ -137,6 +146,7 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           ></textarea>
         </div>
       </div>
+      <StoreModal id="createReview" body="Recensione aggiunta con successo" />
     </form>
   );
 }

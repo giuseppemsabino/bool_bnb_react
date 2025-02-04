@@ -65,20 +65,6 @@ export default function ShowPropertyPage() {
       });
   };
 
-  const handleDeleteReview = (id) => {
-    const url = `${apiUrl}/api/properties/reviews/${id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        fetchProperty(propertyId);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
-
   return (
     <div className="container-fluid px-4">
       {property && (
@@ -112,7 +98,12 @@ export default function ShowPropertyPage() {
                   </div>
                   <div>
                     <span className="fw-semibold">Contatti</span>
-                    <p className="text-decoration-underline">
+                    <p
+                      id="openContactHost"
+                      className="text-decoration-underline"
+                      data-bs-toggle="modal"
+                      data-bs-target="#contactHost"
+                    >
                       {property.email}
                     </p>
                   </div>
@@ -137,19 +128,19 @@ export default function ShowPropertyPage() {
                 </div>
 
                 <div className="text-center p-2 d-flex justify-content-center flex-wrap gap-3">
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className={`fa-solid ${property.type_icon} mx-1`}></i>
                     {property.type_name}
                   </span>
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className="fa-solid fa-bed mx-1"></i>
                     {property.n_beds} Letti
                   </span>
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className="fa-solid fa-house mx-1"></i>
                     {property.n_rooms} Camere
                   </span>
-                  <span className="badge text-bg-secondary">
+                  <span className="badge text-bg-secondary fs-5">
                     <i className="fa-solid fa-sink mx-1"></i>
                     {property.n_bathrooms} Bagni
                   </span>
@@ -180,7 +171,12 @@ export default function ShowPropertyPage() {
               <div className="row g-2 my-4">
                 {reviews.list && reviews.list.length > 0 ? (
                   reviews.list.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
+                    <ReviewCard
+                      key={review.id}
+                      review={review}
+                      fetchProperty={fetchProperty}
+                      propertyId={propertyId}
+                    />
                   ))
                 ) : (
                   <p>No reviews</p>
@@ -250,19 +246,11 @@ export default function ShowPropertyPage() {
           </div>
         </div>
       </div>
-      <div
-        className="modal fade"
-        id="deleteReview"
-        tabIndex="-1"
-        aria-labelledby="deleteReviewLabel"
-        aria-hidden="true"
-      >
+      <div className="modal" tabIndex="-1" id="contactHost">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="deleteReviewLabel">
-                Eliminazione Recensione
-              </h1>
+              <h5 className="modal-title">Contatta {property?.host_name}</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -271,7 +259,27 @@ export default function ShowPropertyPage() {
               ></button>
             </div>
             <div className="modal-body">
-              La procedura è irreversibile, sei sicuro di voler procedere?
+              <div className="mb-3">
+                <label htmlFor="userEmail" className="form-label">
+                  Inserisci la tua email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="userEmail"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="userMessage" className="form-label">
+                  Inserisci il tuo messaggio
+                </label>
+                <textarea
+                  className="form-control"
+                  id="userMessage"
+                  rows="3"
+                ></textarea>
+              </div>
             </div>
             <div className="modal-footer">
               <button
@@ -283,11 +291,10 @@ export default function ShowPropertyPage() {
               </button>
               <button
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-success"
                 data-bs-dismiss="modal"
-                onClick={() => handleDeleteReview(review.id)}
               >
-                Elimina
+                Invia messaggio
               </button>
             </div>
           </div>

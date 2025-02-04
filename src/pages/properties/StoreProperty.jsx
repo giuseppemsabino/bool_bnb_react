@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { usePropertiesContext } from "../../contexts/PropertiesContext";
 import Counter from "../../components/functions/Counter";
 import PropertiesTypeInputGroup from "../../components/elements/PropertiesTypeInputGroup";
+import StoreModal from "../../components/elements/StoreModal";
 
 export default function StoreProperty() {
   // declarations
@@ -39,7 +40,6 @@ export default function StoreProperty() {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert(data.message);
         fetchProperties();
         setSelectedItem("home");
         navigate("/");
@@ -192,10 +192,19 @@ export default function StoreProperty() {
                 ></textarea>
               </div>
               <div className="text-end   mt-3">
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#createProperty"
+                >
                   Inserisci
                 </button>
               </div>
+              <StoreModal
+                id="createProperty"
+                body="Proprietà aggiunta con successo"
+              />
             </form>
           </div>
         </div>
