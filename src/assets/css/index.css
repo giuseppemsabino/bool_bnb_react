@@ -11,6 +11,15 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.card:hover {
+  border: 1px solid #6917b0;
+  opacity: 0.8;
+}
+
+.card-body {
+  height: 200px;
+}
+
 .btn-purple {
   background-color: #8338ec;
   color: white;
@@ -26,23 +35,21 @@ body {
   border-bottom: 2px solid #6917b0;
 }
 
-.nav-item {
-  border-bottom: 2px solid transparent;
+.insert-item {
+  height: 100%;
 }
 
-.navbar {
-  padding: 0 !important;
-  padding-top: 10px !important;
+.nav-item-insert {
+  padding: 8px;
+}
+
+.nav-item {
+  border-bottom: 2px solid transparent;
 }
 
 .tag-card-font {
   font-size: 0.7rem;
   color: grey;
-}
-
-/* card shadow */
-.card {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* COLLAGE IMAGES SHOW */
@@ -198,6 +205,9 @@ input[type="range"]::-webkit-slider-thumb:focus {
   text-align: center;
   text-shadow: 8px 5px 18px black;
   color: white;
+}
+
+.anton {
   font-family: "Anton", sans-serif;
 }
 
@@ -215,9 +225,90 @@ input[type="range"]::-webkit-slider-thumb:focus {
 .research-placeholder {
   margin-top: 200px !important;
   width: 450px;
-  margin-right: 150px;
 }
 
 .address-span {
   font-size: 0.8rem;
+}
+
+/* popular destination card */
+
+.popular-destination-card {
+  aspect-ratio: 1.5;
+  border: none;
+}
+
+.popular-destination-card:hover {
+  opacity: 0.8;
+  border: 1px solid #6917b0;
+  cursor: pointer;
+}
+
+.popular-destination-card-img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.popular-destination-card-title {
+  text-shadow: 1px 1px 20px black;
+}
+
+/* about us page */
+.team-card {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 10px;
+  margin: 20px 5px;
+}
+
+.team-card img {
+  width: 100%;
+  border-radius: 50%;
+  max-height: 300px;
+}
+
+main {
+  min-height: 100vh;
+  /* index sections */
+}
+.second-section {
+  background-image: url(/img/secondSection/worldmap.png);
+  margin: 50px 0px;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card.card-second-section {
+  box-shadow: none !important;
+  border: 1px solid rgb(226, 226, 226) !important;
+}
+
+.card.card-second-section:hover {
+  cursor: auto !important;
+  border: 1px solid rgb(226, 226, 226) !important;
+  box-shadow: none !important;
+  opacity: 1;
+}
+
+.third-section {
+  margin-top: 100px !important;
+  margin-bottom: 150px !important;
+}
+
+.w-md-100 {
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .w-md-100 {
+    width: 100%;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePropertiesContext } from "../contexts/PropertiesContext";
 import Card from "../components/elements/Card";
 import PropertiesTypeInputGroup from "../components/elements/PropertiesTypeInputGroup";
@@ -8,6 +8,7 @@ import InputSearchBar from "../components/InputSearchBar";
 export default function SearchPage() {
   const { properties, types, filteredProperties, setFilteredProperties } =
     usePropertiesContext();
+
   const defaultSearchInput = {
     text: "",
     rooms: 0,
@@ -89,7 +90,7 @@ export default function SearchPage() {
         {/* AGGIUNTA DI PLACEHOLDER CHE SCOMPARE ALLA RICERCA */}
 
         {filteredProperties && filteredProperties.length > 0 ? (
-          <div className="row mt-5">
+          <div className="row mt-5 g-3">
             <h3 className="my-3">Ecco i tuoi risultati:</h3>
             {filteredProperties.map((property) => (
               <Card key={property.id} property={property} />
@@ -99,7 +100,7 @@ export default function SearchPage() {
           <div className="container d-flex justify-content-center align-items-center">
             <img
               className="research-placeholder img-fluid mt-5"
-              src={`/advanced-research-placeholder.png`}
+              src={`img/searchPage/advanced-research-placeholder.png`}
               alt="Nessun risultato"
             />
           </div>

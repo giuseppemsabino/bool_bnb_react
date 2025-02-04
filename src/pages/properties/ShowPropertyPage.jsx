@@ -9,7 +9,7 @@ export default function ShowPropertyPage() {
   const propertyId = useParams().id;
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
-  const { fetchProperties } = usePropertiesContext();
+  const { fetchProperties, setSelectedItem } = usePropertiesContext();
 
   const [property, setProperty] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -56,6 +56,7 @@ export default function ShowPropertyPage() {
       .then((res) => res.json())
       .then((data) => {
         fetchProperties();
+        setSelectedItem("home");
         navigate("/");
       })
 
@@ -159,8 +160,8 @@ export default function ShowPropertyPage() {
             <hr />
 
             <div className="my-5 d-flex flex-column gap-5">
-              <div>
-                <span>Posizione del immobile</span>
+              <div className="text-center">
+                <h5 className="fw-semibold">Posizione del immobile</h5>
                 <h4 className="text-decoration-underline">
                   {property.address}
                 </h4>
