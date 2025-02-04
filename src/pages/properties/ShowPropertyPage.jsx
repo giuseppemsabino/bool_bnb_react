@@ -98,7 +98,12 @@ export default function ShowPropertyPage() {
                   </div>
                   <div>
                     <span className="fw-semibold">Contatti</span>
-                    <p className="text-decoration-underline">
+                    <p
+                      id="openContactHost"
+                      className="text-decoration-underline"
+                      data-bs-toggle="modal"
+                      data-bs-target="#contactHost"
+                    >
                       {property.email}
                     </p>
                   </div>
@@ -236,6 +241,60 @@ export default function ShowPropertyPage() {
                 onClick={() => handleDeleteProperty(property.id)}
               >
                 Elimina
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="modal" tabIndex="-1" id="contactHost">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Contatta {property?.host_name}</h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="mb-3">
+                <label htmlFor="userEmail" className="form-label">
+                  Inserisci la tua email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="userEmail"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="userMessage" className="form-label">
+                  Inserisci il tuo messaggio
+                </label>
+                <textarea
+                  className="form-control"
+                  id="userMessage"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Annulla
+              </button>
+              <button
+                type="button"
+                className="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Invia messaggio
               </button>
             </div>
           </div>
