@@ -54,7 +54,7 @@ export default function StoreProperty() {
     <>
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-9 col-lg-6">
+          <div className="col-12 col-lg-9 col-xxl-6">
             <h1>Inserimento immobile</h1>
             <form onSubmit={handleSubmitFormData}>
               <div className="my-4">
@@ -97,12 +97,10 @@ export default function StoreProperty() {
                   />
                 </div>
 
-                <div className="text-center">
-                  <PropertiesTypeInputGroup
-                    handleFunction={handleInputFormData}
-                    idValue="insert-"
-                  />
-                </div>
+                <PropertiesTypeInputGroup
+                  handleFunction={handleInputFormData}
+                  idValue="insert-"
+                />
 
                 <div className="border border-dark px-5 py-3 mt-3 rounded">
                   <Counter

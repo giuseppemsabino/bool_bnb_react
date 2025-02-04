@@ -5,7 +5,7 @@ export default function PropertiesTypeInputGroup({ handleFunction, idValue }) {
 
   return (
     <>
-      <div className="btn-group border border-dark p-2" role="group">
+      <div className="btn-group border border-dark p-2 d-flex flex-wrap justify-content-center">
         {types &&
           types.length &&
           types.map((type) => {
