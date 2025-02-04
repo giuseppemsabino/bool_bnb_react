@@ -26,27 +26,32 @@ export default function StoreProperty() {
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState(defaultFormData);
+  const [okState, setOkState] = useState(false);
 
   // functions
   function handleSubmitFormData(e) {
     e.preventDefault();
-
-    fetch(apiUrl + "/api/properties", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        fetchProperties();
-        setSelectedItem("home");
-      });
+    if (formData.title) {
+      fetch(apiUrl + "/api/properties", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          fetchProperties();
+          setSelectedItem("home");
+        });
+    } else {
+      setOkState(false);
+    }
   }
 
   function handleInputFormData(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setOkState(true);
   }
 
   return (
@@ -184,14 +189,15 @@ export default function StoreProperty() {
                   name="description"
                   value={formData.description}
                   onChange={handleInputFormData}
+                  required
                 ></textarea>
               </div>
               <div className="text-end   mt-3">
                 <button
                   type="submit"
-                  className="btn btn-success"
+                  className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#createProperty"
+                  data-bs-target={okState ? "#createProperty" : ""}
                 >
                   Inserisci
                 </button>
