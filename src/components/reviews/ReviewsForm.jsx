@@ -82,16 +82,20 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           <label className="form-label" htmlFor="ratingInput">
             Voto
           </label>
-          <input
+          <select
             name="rating"
             value={formData.rating}
             onChange={handleFormData}
-            type="number"
-            className="form-control"
-            placeholder="Inserisci un voto da 1 a 5"
+            className="form-select"
             id="ratingInput"
             required
-          />
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </div>
         <div className="col-sm-6 col-lg-4">
           <label className="form-label" htmlFor="daysInput">

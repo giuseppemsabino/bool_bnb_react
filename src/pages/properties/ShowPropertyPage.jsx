@@ -65,20 +65,6 @@ export default function ShowPropertyPage() {
       });
   };
 
-  const handleDeleteReview = (id) => {
-    const url = `${apiUrl}/api/properties/reviews/${id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        fetchProperty(propertyId);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
-
   return (
     <div className="container-fluid px-4">
       {property && (
@@ -180,7 +166,12 @@ export default function ShowPropertyPage() {
               <div className="row g-2 my-4">
                 {reviews.list && reviews.list.length > 0 ? (
                   reviews.list.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
+                    <ReviewCard
+                      key={review.id}
+                      review={review}
+                      fetchProperty={fetchProperty}
+                      propertyId={propertyId}
+                    />
                   ))
                 ) : (
                   <p>No reviews</p>
@@ -243,49 +234,6 @@ export default function ShowPropertyPage() {
                 className="btn btn-danger"
                 data-bs-dismiss="modal"
                 onClick={() => handleDeleteProperty(property.id)}
-              >
-                Elimina
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="modal fade"
-        id="deleteReview"
-        tabIndex="-1"
-        aria-labelledby="deleteReviewLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="deleteReviewLabel">
-                Eliminazione Recensione
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              La procedura è irreversibile, sei sicuro di voler procedere?
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Annulla
-              </button>
-              <button
-                type="button"
-                className="btn btn-danger"
-                data-bs-dismiss="modal"
-                onClick={() => handleDeleteReview(review.id)}
               >
                 Elimina
               </button>
