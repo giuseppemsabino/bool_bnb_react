@@ -39,7 +39,7 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
   return (
     <form onSubmit={handleFormSubmit}>
       <div className="row g-3 my-3 rounded shadow p-3">
-        <div className="col-10">
+        <div className="col-8 col-sm-10">
           <h3 className="d-inline">SCRIVI LA TUA RECENSIONE</h3>
         </div>
         <div className="col-2 text-end">
