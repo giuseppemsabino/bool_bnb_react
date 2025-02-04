@@ -78,6 +78,8 @@ export default function IndexPropertiesPage() {
       })
     );
     setSelectedItem("search");
+    const newSearchInput = searchInput;
+    setSearchInput({ ...newSearchInput, text: destination });
     navigate("/properties");
   }
 
