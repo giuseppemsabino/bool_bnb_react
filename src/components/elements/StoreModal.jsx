@@ -19,10 +19,9 @@ export default function StoreModal({ id, body }) {
           </div>
           <div className="modal-footer">
             <button
-              type="button"
+              type="submit"
               className="btn btn-success"
               data-bs-dismiss="modal"
-              onClick={() => navigate("/")}
             >
               Ok
             </button>
