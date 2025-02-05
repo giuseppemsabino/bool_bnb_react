@@ -146,7 +146,11 @@ export default function ReviewsForm({ propertyId, fetchProperty }) {
           ></textarea>
         </div>
       </div>
-      <StoreModal id="createReview" body="Recensione aggiunta con successo" />
+      <StoreModal
+        id="createReview"
+        body="Recensione aggiunta con successo"
+        path={`/properties/${propertyId}`}
+      />
     </form>
   );
 }

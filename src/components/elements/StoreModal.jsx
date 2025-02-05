@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function StoreModal({ id, body }) {
+export default function StoreModal({ id, body, path }) {
   const navigate = useNavigate();
   return (
     <div className="modal" tabIndex="-1" id={id}>
@@ -22,6 +22,7 @@ export default function StoreModal({ id, body }) {
               type="submit"
               className="btn btn-success"
               data-bs-dismiss="modal"
+              onClick={() => navigate(path)}
             >
               Ok
             </button>

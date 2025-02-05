@@ -205,6 +205,7 @@ export default function StoreProperty() {
               <StoreModal
                 id="createProperty"
                 body="Proprietà aggiunta con successo"
+                path="/"
               />
             </form>
           </div>
