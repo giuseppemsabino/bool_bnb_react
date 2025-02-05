@@ -46,7 +46,7 @@ export default function Card({ property }) {
                     {property.n_bathrooms}
                   </span>
                   <span className="badge text-bg-success mx-1">
-                    <i className="fa-solid fa-house mx-1"></i>
+                    <i className="fa-solid fa-door-closed mx-1"></i>
                     {property.n_rooms}
                   </span>
                 </div>
