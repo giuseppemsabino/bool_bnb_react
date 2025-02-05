@@ -137,7 +137,7 @@ export default function ShowPropertyPage() {
                     {property.n_beds} Letti
                   </span>
                   <span className="badge text-bg-secondary fs-5">
-                    <i className="fa-solid fa-house mx-1"></i>
+                    <i className="fa-solid fa-door-closed mx-1"></i>
                     {property.n_rooms} Camere
                   </span>
                   <span className="badge text-bg-secondary fs-5">
